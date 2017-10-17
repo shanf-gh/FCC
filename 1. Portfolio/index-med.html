@@ -28,14 +28,14 @@
           </li><!-- No space
        --><li>
             <a href="#portfolio">
-              <div class="btn-activ">
+              <div>
                 PORTFOLIO
               </div>
             </a>
           </li><!-- No space
        --><li>
             <a href="#contact-me">
-              <div class="btn-activ">
+              <div>
                 CONTACT
               </div>
             </a>
@@ -45,24 +45,22 @@
     </div>
 
     <div class="core container">
-      <section id="about">
-        <div class="col-8">
+      <section class="row" id="about">
+        <div class="col-9 desc">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu leo tempus,
             fringilla diam sed, imperdiet tellus. Aenean congue, massa at pharetra rutrum,
-            ligula leo mollis mi, in malesuada mauris elit ut sem. Sed bibendum odio eget sem
-            rhoncus pulvinar. Praesent sagittis metus faucibus magna iaculis lobortis. Proin
-            molestie fermentum malesuada.
+            ligula leo mollis mi, in malesuada mauris elit ut sem.
           </p>
-
+          <hr>
           <h3>Quisque sem nulla, finibus at sem et, aliquam rhoncus diam. </h3>
         </div>
-        <div class="col-4">
+        <div class="col-3 no-gutter">
           <img src="assets\images\morty01-crop.png" alt="morty-picture">
         </div>
       </section>
 
-      <section id="portfolio">
+      <section id="portfolio" class="row">
         <h1>Portfolio</h1>
         <br>
           <img src="http://placehold.it/250x250" alt="placeholder image" />
@@ -71,7 +69,7 @@
           <img src="http://placehold.it/300x300" alt="placeholder image" />
       </section>
 
-      <section id="contact-me">
+      <section id="contact-me" class="row">
         <h1>Form</h1>
         <div class="">
           Form pane.
@@ -96,16 +94,16 @@
     </div>
 
     <footer>
-      <div id="social">
-        <div class="container">
-          <div id="about-page">
+      <div id="social" class="container">
+        <div class="row">
+          <div id="about-page" class="col-4">
             <h1>ABOUT THIS PAGE</h1>
             <p>
               Made with <i>coffee</i> and <i>music</i> by Fabien Shan
             </p>
           </div>
 
-          <div id="around-web">
+          <div id="around-web" class="col-4">
             <h1>AROUND THE WEB</h1>
             <ul>
               <li>LINKEDIN</li>
@@ -120,7 +118,7 @@
 
       <div id="foot-info">
         <div class="container">
-          Fabien <span class="copyleft">&copy;</span> 2017. All Rights Reversed
+            Fabien <span class="copyleft">&copy;</span> 2017. All Rights Reversed
         </div>
       </div>
     </footer>
