@@ -1,0 +1,72 @@
+/* Variables */
+:root {
+  --color: blue;
+}
+
+html {
+  background: var(--color);
+}
+
+/* Quotebox elements */
+.quotebox {
+  width: 680px;
+  background: #fff;
+  padding: 30px 30px 30px 30px;
+  margin: auto;
+  margin-top: 150px;
+  border-radius: 10px;
+  color: var(--color);
+}
+.fa-quote-left {
+  margin-left: 50px;
+  position: relative;
+  top: 15px;
+}
+#quoteHolder {
+  font-size: 2em;
+}
+.quoteAuthor {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+}
+#author {
+  right:70px;
+  font-size: 1em;
+}
+
+/* Buttons */
+.buttons {
+  width: 100%;
+  margin-top: 30px;
+}
+button {
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: var(--color);
+  text-align: center;
+}
+button:hover {
+  opacity: 0.8;
+}
+button.tweet {
+  width: 40px;
+}
+button.genQuote {
+  width: 100px;
+  float: right;
+}
+
+/* Footer elements */
+p,
+a {
+  color: #fff;
+}
+p {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
