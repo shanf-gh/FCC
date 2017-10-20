@@ -7,13 +7,13 @@ Original from [KaliaHaze](https://gist.github.com/KaliaHaze/633e93581ebace3bde62
 
 ### Basic Front End Development Projects
 
-- [ ] Build a Tribute Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-tribute-page) | Demo | Source Code
-- [ ] Build a Personal Portfolio Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage) | Demo | Source Code
+- [ ] Build a Tribute Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-tribute-page) | [Demo](https://codepen.io/FreeCodeCamp/full/NNvBQW/) | Source Code
+- [x] Build a Personal Portfolio Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage) | [Demo](https://codepen.io/FreeCodeCamp/full/YqLyXB/) | [Source Code](https://codepen.io/X140hu4/full/WZLLQQ/)
 
 ### Intermediate Front End Development Projects
 
-- [ ] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | Demo | Source Code
-- [ ] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | Demo | Source Code
+- [x] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | [Demo](https://codepen.io/FreeCodeCamp/full/ONjoLe/) | [Source Code](https://codepen.io/X140hu4/full/Yrgqbq/)
+- [ ] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](http://codepen.io/FreeCodeCamp/full/bELRjV) | Source Code
 - [ ] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | Demo | Source Code
 - [ ] Use the Twitch.tv JSON API | [Requirements](http://www.freecodecamp.com/challenges/use-the-twitchtv-json-api) | Demo | Source Code
 
