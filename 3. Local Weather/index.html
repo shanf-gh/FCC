@@ -7,32 +7,36 @@
     <title>fCC - Local Weather</title>
   </head>
   <body>
-    <h1>Free Code Camp</h1>
-    <h1>Weather App</h1>
-    <!-- data.coord.lon and data.coord.lat -->
-    <div id="loc_lon-lat">a</div>
-    <!-- data.name -->
-    <div id="loc">b</div>
-    <!-- data.main.temp -->
-    <div id="temp">c</div>
-    <!-- data.weather.main or data.weather[0].main-->
-    <div id="weather-main">d</div>
-    <!-- data.weather.icon or data.weather[0].icon -->
-    <div id="weather-icon">e</div>
+    <div class="container">
+      <header>
+        <h1>Free Code Camp</h1>
+        <h1>Weather App</h1>
+      </header>
+      <!-- data.coord.lon and data.coord.lat
+      <div id="loc_lon-lat">longitude: 135.5; lattitude: 34.69</div>
+      -->
+      <!-- data.name -->
+      <div id="loc">Osaka-shi, JP</div>
+      <!-- data.main.temp -->
+      <div id="temp">20.5 &#8451;</div>
+      <!-- data.weather[0].main-->
+      <div id="weather-main">Clouds</div>
+      <!-- data.weather[0].icon -->
+      <div id="weather-icon">
+          <img src="https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F04n.png?1499366020983">
+      </div>
 
-    <p>Current location:
-      <div id="data" class="curLoc"></div>
-    </p>
 
-    <p>
-      Request feedback:
-      <div id="message"></div>
-    </p>
+    </div>
 
-    <p>
-      Variable:
-      <div id="variable"></div>
-    </p>
+
+    <div>
+      <p>
+        Request feedback:
+        <div id="message"></div>
+      </p>
+    </div>
+
 
     <button type="button" name="button" onclick="getLocation()">Get loc</button>
     <script src="assets/script.js"></script>

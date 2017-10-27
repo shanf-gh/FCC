@@ -1,4 +1,11 @@
-var x = document.getElementById("data");
+
+// divs to be populated
+// If uncomment verify all related element
+// var lon_lat = document.getElementById("loc_lon-lat");
+var loc = document.getElementById("loc");
+var temp = document.getElementById("temp");
+var weather = document.getElementById("weather-main");
+var weather_icon = document.getElementById("weather-icon");
 var y = document.getElementById("message");
 var z = document.getElementById("variable");
 var data;
@@ -18,9 +25,6 @@ function showPosition(position) {
   var lat = position.coords.latitude;
   var lon = position.coords.longitude;
   // output lattiude and longitude to html
-  x.innerHTML = "Latitude: " + Math.round(position.coords.latitude) +
-  "<br>Longitude: " + Math.round(position.coords.longitude);
-
   // Create a new request
   var request = new XMLHttpRequest();
   var getURL = 'https://fcc-weather-api.glitch.me/api/current?lat='+ lat +'&lon=' + lon;
@@ -31,14 +35,17 @@ function showPosition(position) {
     if (request.status >= 200 && request.status < 400) {
       // SUCCESS !
       // Stringify the response from the server and then parse to create a JS object
-      data = JSON.parse(request.responseText);
-      y.innerHTML = data.weather[0].main;
-      z.innerHTML = 'lat: ' + lat + '<br>lon: ' + lon;
-      document.getElementById("loc_lon-lat").innerHTML = "longitude: " + data.coord.lon + "; lattitude: " + data.coord.lat;
-      document.getElementById("loc").innerHTML = "Data name: " + data.name;
-      document.getElementById("temp").innerHTML = "temperature: " + data.main.temp;
-      document.getElementById("weather-main").innerHTML = "Weather param: " + data.weather[0].main;
-      document.getElementById("weather-icon").innerHTML = "Weather icon: <img src=\"" + data.weather[0].icon + "\">";
+      var reqResponse = request.responseText;
+      data = JSON.parse(reqResponse);
+      y.innerHTML = reqResponse;
+      // if uncomment - uncomment related html div
+      // lon_lat.innerHTML = "lon: " + data.coord.lon + " lat: " + data.coord.lat;
+      loc.innerHTML = data.name + ", " + data.sys.country;
+      // Character for Celcius &#8451; - for fahrenheit &#8457;
+      temp.innerHTML =  Math.round(data.main.temp * 10) / 10 + " &#8451;";
+
+      weather.innerHTML = data.weather[0].main;
+      weather_icon.innerHTML = "<img src=\"" + data.weather[0].icon + "\">";
       /**/
     } else {
       // We reached our target server, but it returned an error

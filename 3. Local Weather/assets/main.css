@@ -1,3 +1,22 @@
+html {
+  background: #1E90FF;
+  color: #fff;
+}
+
+div.container {
+  height: 100%;
+  width: 480px;
+  margin: auto;
+  text-align: center;
+}
+
+div.container div{
+  font-size: 2em;
+}
+
+h1 {
+  font-size: 3em;
+}
 
 /*
 {
