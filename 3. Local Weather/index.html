@@ -3,42 +3,30 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/main.css">
-
     <title>fCC - Local Weather</title>
   </head>
+
   <body>
     <div class="container">
       <header>
         <h1>Free Code Camp</h1>
         <h1>Weather App</h1>
       </header>
-      <!-- data.coord.lon and data.coord.lat
-      <div id="loc_lon-lat">longitude: 135.5; lattitude: 34.69</div>
-      -->
       <!-- data.name -->
-      <div id="loc">Osaka-shi, JP</div>
+      <div id="loc"></div>
       <!-- data.main.temp -->
-      <div id="temp">20.5 &#8451;</div>
-      <!-- data.weather[0].main-->
-      <div id="weather-main">Clouds</div>
-      <!-- data.weather[0].icon -->
-      <div id="weather-icon">
-          <img src="https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F04n.png?1499366020983">
+      <div id="temp-block">
+        <div id="tempV"></div><span id="tempM"></span>
       </div>
+      <!-- data.weather[0].main-->
+      <div id="weather-main"></div>
+      <!-- data.weather[0].icon -->
+      <div id="weather-icon"></div>
 
-
+      <p>Inspired By <a href="https://codepen.io/joshbader/full/EjXgqr/" target="_blank">joshbader</a></p>
     </div>
 
 
-    <div>
-      <p>
-        Request feedback:
-        <div id="message"></div>
-      </p>
-    </div>
-
-
-    <button type="button" name="button" onclick="getLocation()">Get loc</button>
     <script src="assets/script.js"></script>
   </body>
 </html>

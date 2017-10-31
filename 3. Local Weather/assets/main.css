@@ -10,13 +10,27 @@ div.container {
   text-align: center;
 }
 
-div.container div{
+div.container div,
+#tempM{
   font-size: 2em;
 }
-
 h1 {
   font-size: 3em;
 }
+
+#tempM:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+#tempV {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
 
 /*
 {
