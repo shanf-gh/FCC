@@ -7,16 +7,8 @@ Link: [freeCodeCamp - Show the Local Weather](https://www.freecodecamp.org/chall
 
 ## Built With (examples)
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [fCC Weather API](https://fcc-weather-api.glitch.me)
 
 ## Authors
 
 * **X140hu4** - *Initial work*
-
-## Acknowledgments (examples)
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
