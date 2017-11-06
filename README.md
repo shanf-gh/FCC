@@ -13,8 +13,8 @@ Original from [KaliaHaze](https://gist.github.com/KaliaHaze/633e93581ebace3bde62
 ### Intermediate Front End Development Projects
 
 - [x] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | [Demo](https://codepen.io/FreeCodeCamp/full/ONjoLe/) | [Source Code](https://codepen.io/X140hu4/full/Yrgqbq/)
-- [ ] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](http://codepen.io/FreeCodeCamp/full/bELRjV) | Source Code
-- [ ] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | Demo | Source Code
+- [x] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](http://codepen.io/FreeCodeCamp/full/bELRjV) | Source Code
+- [WIP] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | Demo | Source Code
 - [ ] Use the Twitch.tv JSON API | [Requirements](http://www.freecodecamp.com/challenges/use-the-twitchtv-json-api) | Demo | Source Code
 
 ### Advanced Front End Development Projects
