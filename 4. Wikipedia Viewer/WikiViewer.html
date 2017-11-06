@@ -2,13 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="assets/main.css">
+    <!-- Fonts -->
+    <script src="https://use.fontawesome.com/505702171c.js"></script>
+
     <title>Wikipedia Viewer</title>
   </head>
   <body>
-  <p>Put an input box</p>
-  <p>Put a button for search</p>
-  <p>Put a button for random page</p>
-  <script src="/assets/script.js"></script>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Click here for a random article</a>
+    </p>
+
+    <form class="search-box" action="" onSubmit="return false;">
+      <span class="fa fa-search fa-lg"></span>
+      <input id="in-search" type="text" name="search" placeholder="Search..." />
+    </form>
+
+    <div id="search-result">
+      <p id="searchp">Press enter to search</p>
+    </div>
+  <script src="assets/script.js"></script>
   </body>
 </html>

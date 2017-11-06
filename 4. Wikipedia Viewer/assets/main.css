@@ -1,0 +1,49 @@
+* {
+  color: #fff;
+  font-size: 1em;
+}
+
+/* Remove the outline when selecting the search box */
+*:focus {
+  outline: none;
+}
+
+html {
+  background: #6B6B6B;
+}
+
+body {
+  width: 640px;
+  // border: 2px solid #000;
+  margin: auto;
+  margin-top: 150px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.search-box {
+  position: relative;
+  color: #000;
+  width: 50%;
+  margin: auto;
+}
+
+.search-box .fa-search {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  color: #000;
+}
+
+form input {
+  height: 25px;
+  width: 100%;
+  color: #000;
+  text-indent: 30px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  border-color: #000;
+}
