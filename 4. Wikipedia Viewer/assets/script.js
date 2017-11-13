@@ -6,7 +6,7 @@
 // "format=json" to specify the returned format
 var wikiendpoint = "https://en.wikipedia.org/w/api.php?";
 var url = wikiendpoint + "action=query&rvprop=content&format=json";
-var result = document.getElementById("search-result")
+var result = document.getElementById("results")
 var nbrSearch = 15;
 
 document.getElementById('in-search').onkeypress = function(e) {
@@ -31,12 +31,15 @@ document.getElementById('in-search').onkeypress = function(e) {
         if (xhr.status >= 200 && xhr.status < 400) {
           // SUCCESS !
           // hide the paragraph in search-result
-          document.getElementById("searchp").style.display = 'none';
+          document.getElementById("search-direction").style.display = 'none';
 
           // get the responsetext and parse it to turn it into a JS object
           var reqResponse = xhr.responseText;
           data = JSON.parse(reqResponse);
           console.log(data.query);
+          if (document.getElementById("results").innerHTML !== "") {
+            document.getElementById("results").innerHTML = "";
+          }
 
           for(var pageID in data.query.pages) {
             var divEl = document.createElement("div");
@@ -47,6 +50,7 @@ document.getElementById('in-search').onkeypress = function(e) {
             paraEl.appendChild(extract);
 
             divEl.innerHTML = data.query.pages[pageID].title;
+            divEl.classList.add("search-result");
             divEl.appendChild(paraEl);
             anchorEl.appendChild(divEl);
             anchorEl.href = "https://en.wikipedia.org/?curid=" + pageID;
