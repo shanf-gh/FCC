@@ -2,3 +2,8 @@ html {
   background: black;
   color: #fff;
 }
+
+
+img {
+  display: block;
+}

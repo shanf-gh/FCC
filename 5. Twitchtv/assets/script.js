@@ -6,10 +6,9 @@ window.onload = function() {
 
   // users array
   var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
-              "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
-  // xhr variables
-  var xhr = new XMLHttpRequest();
-  var endpoint = "https://wind-bow.glitch.me/twitch-api/channels/";
+              "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas","dahmien7"]
+
+  var endpoint = "https://wind-bow.glitch.me/twitch-api/streams/";
 
   // set an iterator to 0, define a function that make an xhr request and take a callback ,
   // call that function, check the iterator against your array length,
@@ -18,17 +17,25 @@ window.onload = function() {
   for (var i = 0, n = users.length; i < n; i++) {
     var url = endpoint + users[i];
 
-/*
+    var xhr = new XMLHttpRequest();
+
     xhr.open('GET', url, true);
 
     xhr.onload = function() {
       if (this.status >= 200 && this.status < 400) {
         // Success!
         var data = JSON.parse(this.response);
+        if (data.stream) {
+          console.log("Offline");
+        } else {
+          console.log("Online");
 
-        var img = document.createElement("img");
-        img.src = data.logo;
-        results.appendChild(img);
+          var img = document.createElement("img");
+          img.src = data.stream.logo;
+          results.appendChild(img);
+        }
+        console.dir(data.stream);
+        console.dir(data);
       } else {
         // We reached our target server, but it returned an error
         results.innerHTML =  "<p>Server reached. Error returned</p>";
@@ -42,13 +49,13 @@ window.onload = function() {
 
     xhr.send();
   }
-*/
+
 }
 
 // Have a look for asynchronous requests:
 // https://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
 // have a look at cjustom events: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
-
+/*
 function GetData(url, callback) {
   var xhr = new XMLHttpRequest;
 
@@ -61,3 +68,4 @@ function GetData(url, callback) {
   xhr.open("GET", url);
   xhr.send(null);
 }
+*/
