@@ -47,10 +47,23 @@ window.onload = function() {
 
       /* name & status */
       var name = document.createElement('p');
-      name.innerHTML = data.display_name;
+      var name_link = document.createElement('a');
+      name_link.innerHTML = data.display_name;
+      name_link.setAttribute('href',data.url);
+      name.appendChild(name_link);
       var c_status = document.createElement('p');
       c_status.className = 'c_status';
-      c_status.innerHTML = data.status;
+      // Get status text and trim it if too long
+      var c_status_text = data.status;      
+      if (c_status_text.length > 60) {
+        c_status_text = c_status_text.split(' ').reduce(function(ts, s2) {
+          if((ts + " " +  s2).length < 60) {
+            return ts + " " + s2;
+          }
+          return ts;
+        }, "") + "...";
+      }
+      c_status.innerHTML = c_status_text;
       var name_status = document.createElement('div');
       name_status.appendChild(name);
       name_status.appendChild(c_status);
@@ -63,11 +76,14 @@ window.onload = function() {
 
       /* appending to results */
       var row = document.createElement('div');
-      row.className = 'row ' + line_status;
+      row.className = 'row';
       row.appendChild(icon);
       row.appendChild(name_status);
       row.appendChild(s_status);
-      results.appendChild(row);
+      var block = document.createElement('div');
+      block.className = line_status;
+      block.appendChild(row);
+      results.appendChild(block);
     }
   }
 
@@ -112,7 +128,30 @@ for (var i = 0, n = menu_links.length; i < n; i++) {
 var stream_on = results.getElementsByClassName('online');
 var stream_off = results.getElementsByClassName('offline');
 
-
+document.getElementById('btn_online').addEventListener('click', function() {
+  for(var i = 0, n = stream_on.length; i < n; i++) {
+    stream_on[i].style.display = "block";
+  }
+  for(var i = 0, n = stream_off.length; i < n; i++) {
+    stream_off[i].style.display = "none";
+  }
+});
+document.getElementById('btn_offline').addEventListener('click', function() {
+  for(var i = 0, n = stream_on.length; i < n; i++) {
+    stream_on[i].style.display = "none";
+  }
+  for(var i = 0, n = stream_off.length; i < n; i++) {
+    stream_off[i].style.display = "block";
+  }
+});
+document.getElementById('btn_all').addEventListener('click', function() {
+  for(var i = 0, n = stream_on.length; i < n; i++) {
+    stream_on[i].style.display = "block";
+  }
+  for(var i = 0, n = stream_off.length; i < n; i++) {
+    stream_off[i].style.display = "block";
+  }
+});
 
 // Have a look for asynchronous requests:
 // https://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest

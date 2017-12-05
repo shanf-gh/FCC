@@ -82,17 +82,19 @@ img {
 }
 
 #results .icon {
-	padding: 10px;
+	padding: 15px;
 }
 
-#results .name .c_status {
-	font-size: 0.7em;
+#results p.c_status {
+	margin-top: 3px;
+	font-size: 0.8em;
 }
 
 #results .s_status {
 	margin-left:auto;
 	width:30px;
 }
+
 
 /*
     Top Menu
