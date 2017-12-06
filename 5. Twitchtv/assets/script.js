@@ -54,7 +54,7 @@ window.onload = function() {
       var c_status = document.createElement('p');
       c_status.className = 'c_status';
       // Get status text and trim it if too long
-      var c_status_text = data.status;      
+      var c_status_text = data.status;
       if (c_status_text.length > 60) {
         c_status_text = c_status_text.split(' ').reduce(function(ts, s2) {
           if((ts + " " +  s2).length < 60) {
@@ -127,23 +127,9 @@ for (var i = 0, n = menu_links.length; i < n; i++) {
 // visibility of element: document.getElementById("myP").style.visibility = "hidden";
 var stream_on = results.getElementsByClassName('online');
 var stream_off = results.getElementsByClassName('offline');
+var arrows = document.getElementById('arrows').getElementsByTagName('div');
 
-document.getElementById('btn_online').addEventListener('click', function() {
-  for(var i = 0, n = stream_on.length; i < n; i++) {
-    stream_on[i].style.display = "block";
-  }
-  for(var i = 0, n = stream_off.length; i < n; i++) {
-    stream_off[i].style.display = "none";
-  }
-});
-document.getElementById('btn_offline').addEventListener('click', function() {
-  for(var i = 0, n = stream_on.length; i < n; i++) {
-    stream_on[i].style.display = "none";
-  }
-  for(var i = 0, n = stream_off.length; i < n; i++) {
-    stream_off[i].style.display = "block";
-  }
-});
+// Display all channels and its arrow
 document.getElementById('btn_all').addEventListener('click', function() {
   for(var i = 0, n = stream_on.length; i < n; i++) {
     stream_on[i].style.display = "block";
@@ -151,22 +137,36 @@ document.getElementById('btn_all').addEventListener('click', function() {
   for(var i = 0, n = stream_off.length; i < n; i++) {
     stream_off[i].style.display = "block";
   }
+  displayArrow(0);
+});
+// Display online channels and its arrow
+document.getElementById('btn_online').addEventListener('click', function() {
+  for(var i = 0, n = stream_on.length; i < n; i++) {
+    stream_on[i].style.display = "block";
+  }
+  for(var i = 0, n = stream_off.length; i < n; i++) {
+    stream_off[i].style.display = "none";
+  }
+  displayArrow(1);
+});
+// Display offline channels and its arrow
+document.getElementById('btn_offline').addEventListener('click', function() {
+  for(var i = 0, n = stream_on.length; i < n; i++) {
+    stream_on[i].style.display = "none";
+  }
+  for(var i = 0, n = stream_off.length; i < n; i++) {
+    stream_off[i].style.display = "block";
+  }
+  displayArrow(2);
 });
 
-// Have a look for asynchronous requests:
-// https://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
-// have a look at cjustom events: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
-/*
-function GetData(url, callback) {
-  var xhr = new XMLHttpRequest;
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-
+function displayArrow(element) {
+  for (var i = 0, n = arrows.length; i < n; i++) {
+    var disp = "none"
+    if (i === element) {
+      disp = "block"
     }
+    arrows[i].style.display = disp;
   }
-
-  xhr.open("GET", url);
-  xhr.send(null);
 }
-*/

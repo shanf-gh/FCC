@@ -53,16 +53,17 @@ table {
 */
 
 html {
-  background: #727272;
-  color: #fff;
+  background: #69D1C5;
 }
 
 .container {
 	position: relative;
   width: 500px;
-  background: #D8D8D8;
+  background: #fff;
+  color: #69D1C5;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 img {
@@ -87,7 +88,7 @@ img {
 
 #results p.c_status {
 	margin-top: 3px;
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 
 #results .s_status {
@@ -95,6 +96,15 @@ img {
 	width:30px;
 }
 
+#results a {
+	color: #21897E;
+	text-decoration: none;
+}
+
+#results a:hover {
+	color: #21897E;
+	text-decoration: underline;
+}
 
 /*
     Top Menu
@@ -117,7 +127,7 @@ ul#status li {
 	/* End of flexbox properties */
   width: 34%;
 	height: 40px;
-  background: #B2B2B2;
+  background: #21897E;
   /*border-right: 1px solid grey;
 	*/
 }
@@ -126,4 +136,29 @@ ul#status li a {
   color: #fff;
   font-size: 1.3em;
   text-decoration: none;
+}
+
+/* arrows */
+
+#arrows li {
+	/* Flexbox to align items */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* End of flexbox properties */
+	margin-top: -2px;
+	width: 34%;
+}
+
+.arrow-up {
+	display:none;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid #21897E;
+}
+
+li:first-child .arrow-up {
+	display: block;
 }
