@@ -55,7 +55,7 @@ window.onload = function() {
       c_status.className = 'c_status';
       // Get status text and trim it if too long
       var c_status_text = data.status;
-      if (c_status_text.length > 60) {
+      if (c_status_text && c_status_text.length > 60) {
         c_status_text = c_status_text.split(' ').reduce(function(ts, s2) {
           if((ts + " " +  s2).length < 60) {
             return ts + " " + s2;
@@ -131,36 +131,31 @@ var arrows = document.getElementById('arrows').getElementsByTagName('div');
 
 // Display all channels and its arrow
 document.getElementById('btn_all').addEventListener('click', function() {
-  displayIt('block','block');
-  displayArrow(0);
+  displayIt('block','block','all');
 });
 // Display online channels and its arrow
 document.getElementById('btn_online').addEventListener('click', function() {
-  displayIt('block','none');
-  displayArrow(1);
+  displayIt('block','none','online');
 });
 // Display offline channels and its arrow
 document.getElementById('btn_offline').addEventListener('click', function() {
-  displayIt('none','block');
-  displayArrow(2);
+  displayIt('none','block','offline');
 });
 
 
 function displayArrow(element) {
-  for (var i = 0, n = arrows.length; i < n; i++) {
-    var disp = "none"
-    if (i === element) {
-      disp = "block"
-    }
-    arrows[i].style.display = disp;
+  for (var arrow of arrows) {
+    arrow.style.display = "none";
   }
+  document.getElementById(element).style.display = 'block';
 }
 
-function displayIt(onDisplay, offDisplay) {
+function displayIt(onDisplay, offDisplay, status) {
   for(var i = 0, n = stream_on.length; i < n; i++) {
     stream_on[i].style.display = onDisplay;
   }
   for(var i = 0, n = stream_off.length; i < n; i++) {
     stream_off[i].style.display = offDisplay;
   }
+  displayArrow(status);
 }
