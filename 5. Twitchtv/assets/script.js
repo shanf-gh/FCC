@@ -131,32 +131,17 @@ var arrows = document.getElementById('arrows').getElementsByTagName('div');
 
 // Display all channels and its arrow
 document.getElementById('btn_all').addEventListener('click', function() {
-  for(var i = 0, n = stream_on.length; i < n; i++) {
-    stream_on[i].style.display = "block";
-  }
-  for(var i = 0, n = stream_off.length; i < n; i++) {
-    stream_off[i].style.display = "block";
-  }
+  displayIt('block','block');
   displayArrow(0);
 });
 // Display online channels and its arrow
 document.getElementById('btn_online').addEventListener('click', function() {
-  for(var i = 0, n = stream_on.length; i < n; i++) {
-    stream_on[i].style.display = "block";
-  }
-  for(var i = 0, n = stream_off.length; i < n; i++) {
-    stream_off[i].style.display = "none";
-  }
+  displayIt('block','none');
   displayArrow(1);
 });
 // Display offline channels and its arrow
 document.getElementById('btn_offline').addEventListener('click', function() {
-  for(var i = 0, n = stream_on.length; i < n; i++) {
-    stream_on[i].style.display = "none";
-  }
-  for(var i = 0, n = stream_off.length; i < n; i++) {
-    stream_off[i].style.display = "block";
-  }
+  displayIt('none','block');
   displayArrow(2);
 });
 
@@ -168,5 +153,14 @@ function displayArrow(element) {
       disp = "block"
     }
     arrows[i].style.display = disp;
+  }
+}
+
+function displayIt(onDisplay, offDisplay) {
+  for(var i = 0, n = stream_on.length; i < n; i++) {
+    stream_on[i].style.display = onDisplay;
+  }
+  for(var i = 0, n = stream_off.length; i < n; i++) {
+    stream_off[i].style.display = offDisplay;
   }
 }
