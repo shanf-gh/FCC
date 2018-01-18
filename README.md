@@ -7,15 +7,15 @@ Original from [KaliaHaze](https://gist.github.com/KaliaHaze/633e93581ebace3bde62
 
 ### Basic Front End Development Projects
 
-- [ ] Build a Tribute Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-tribute-page) | [Demo](https://codepen.io/FreeCodeCamp/full/NNvBQW/) | Source Code
-- [x] Build a Personal Portfolio Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage) | [Demo](https://codepen.io/FreeCodeCamp/full/YqLyXB/) | [Source Code](https://codepen.io/X140hu4/full/WZLLQQ/)
+- [x] Build a Tribute Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-tribute-page) | [Demo](https://codepen.io/X140hu4/full/qRWoeo/) | [Source Code](https://codepen.io/X140hu4/pen/qRWoeo)
+- [x] Build a Personal Portfolio Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage) | [Demo](https://codepen.io/X140hu4/full/WZLLQQ/) | [Source Code](https://codepen.io/X140hu4/pen/WZLLQQ/)
 
 ### Intermediate Front End Development Projects
 
-- [x] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | [Demo](https://codepen.io/FreeCodeCamp/full/ONjoLe/) | [Source Code](https://codepen.io/X140hu4/full/Yrgqbq/)
-- [x] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](http://codepen.io/FreeCodeCamp/full/bELRjV) | Source Code
-- [x] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | [Demo](https://codepen.io/X140hu4/full/gXMZrR/) | Source Code
-- [x] Use the Twitch.tv JSON API | [Requirements](http://www.freecodecamp.com/challenges/use-the-twitchtv-json-api) | [Demo](https://codepen.io/X140hu4/full/KyaZvX/) | Source Code
+- [x] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | [Demo](https://codepen.io/X140hu4/full/Yrgqbq/) | [Source Code](https://codepen.io/X140hu4/pen/Yrgqbq)
+- [x] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](https://codepen.io/X140hu4/full/Bwbdby/) | [Source Code](https://codepen.io/X140hu4/pen/Bwbdby)
+- [x] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | [Demo](https://codepen.io/X140hu4/full/gXMZrR/) | [Source Code](https://codepen.io/X140hu4/pen/gXMZrR)
+- [x] Use the Twitch.tv JSON API | [Requirements](http://www.freecodecamp.com/challenges/use-the-twitchtv-json-api) | [Demo](https://codepen.io/X140hu4/full/KyaZvX/) | [Source Code](https://codepen.io/X140hu4/pen/KyaZvX)
 
 ### Advanced Front End Development Projects
 
