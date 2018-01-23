@@ -1,11 +1,16 @@
 body {
     background: grey;
+    padding-top: 70px;
+}
+
+#footer .container {
+    text-align: center;
 }
 
 /*==============================
 ============ Navbar ============
 ==============================*/
-.navbar {
+/* .navbar {
     background-color: #fff;
 }
 
@@ -21,4 +26,4 @@ body {
 }
 
 
-
+ */
