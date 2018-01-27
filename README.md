@@ -19,7 +19,7 @@ Original from [KaliaHaze](https://gist.github.com/KaliaHaze/633e93581ebace3bde62
 
 ### Advanced Front End Development Projects
 
-- [ ] Build a JavaScript Calculator | [Requirements](http://www.freecodecamp.com/challenges/build-a-javascript-calculator) | Demo | Source Code
+- [x] Build a JavaScript Calculator | [Requirements](http://www.freecodecamp.com/challenges/build-a-javascript-calculator) | [Demo](https://codepen.io/X140hu4/full/QaXMbv) | [Source Code](https://codepen.io/X140hu4/pen/QaXMbv)
 - [ ] Build a Pomodoro Clock | [Requirements](http://www.freecodecamp.com/challenges/build-a-pomodoro-clock) | Demo | Source Code
 - [ ] Build a Tic Tac Toe Game | [Requirements](http://www.freecodecamp.com/challenges/build-a-tic-tac-toe-game) | Demo | Source Code
 - [ ] Build a Simon Game | [Requirements](http://www.freecodecamp.com/challenges/build-a-simon-game) | Demo | Source Code
