@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="./assets/main.css">
+</head>
+<body>
+    <div class="break">
+        <input type="button" class="minus" value="-" onClick="decreaseVal('break-value')" />
+        <p>break</p>
+        <div id="break-value">5</div>
+        <input type="button" class="plus" value="+" onClick="increaseVal('break-value')" />
+    </div>
+    <div class="session">
+        <input type="button" class="minus" value="-" onClick="decreaseVal('session-value')" />
+        <p>session</p>
+        <div id="session-value">25</div>
+        <input type="button" class="plus" value="+" onClick="increaseVal('session-value')" />
+    </div>
+    <div class="timer" onClick="toggleTimer()">
+        <p>timer</p>
+        <div id="timer-value">
+            <span id="timer-val-min">25</span>
+            <span>:</span>
+            <span id="timer-val-sec">00</span>
+        </div>
+    </div>
+</body>
+<script src="./assets/script.js"></script>
+</html>
