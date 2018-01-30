@@ -25,18 +25,26 @@ function increaseVal(id) {
         document.getElementById('timer-val-sec').innerHTML = '00';
     }
 }
+
+// set switch variables
 var isRunning = false;
+var nextBreak = false;
+// secInterval needs to be declared outside the function toggleTimer 
+// otherwise will create a new var for every click and won't be able
+// to properly clearInterval on it
+var secInterval;
 
 function toggleTimer() {
     var min = document.getElementById('timer-val-min');
     var sec = document.getElementById('timer-val-sec');
-    
+    nextBreak = !nextBreak;
+    console.log('toggled');
     if (isRunning) {
         isRunning = !isRunning;
         clearInterval(secInterval);
     } else {
         isRunning = !isRunning;
-        var secInterval = setInterval(function() {
+        secInterval = setInterval(function() {
             var secVal = sec.innerHTML;
 
             // Decrement logics
@@ -45,6 +53,14 @@ function toggleTimer() {
                 if (minVal === "00") {
                     // Stop the clock
                     clearInterval(secInterval);
+                    // Switch the value
+                    var id = nextBreak ? 'break-value' : 'session-value';
+                    console.log("next is break: " + nextBreak + "; id: " + id)
+                    // reset variables
+                    isRunning = !isRunning;
+                    console.log("next is break: " + nextBreak);
+                    min.innerHTML = ('0' + document.getElementById(id).innerHTML).slice(-2);
+                    toggleTimer();
                 } else {
                     // Decrease the minutes
                     minVal -= 1;
@@ -59,5 +75,4 @@ function toggleTimer() {
             }
         }, 1000);
     }
-    console.log(isRunning);
 }
