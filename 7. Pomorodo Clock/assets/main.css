@@ -1,10 +1,45 @@
-.break {
-    background-color: #ffb3ba;
+body {
+    background-color: #DBEBFF;
 }
 
-.session {
-    background-color:#ffdfba;
+.box {
+    height: 200px;
+    width: 500px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 150px;
+    background-color: #9e9e9e;
 }
+
+.setting-container {
+    position: relative;
+    top: 20%;
+    left: 8%;
+    display: grid;
+    grid-template-rows: 2fr repeat(3, 1fr);
+    grid-row-gap: 10px;
+    justify-items: stretch;
+}
+
+.setting-title {
+    font-size: 1.5em;
+}
+
+.length {
+  width: 30%;
+  background-color:#ffdfba;
+  display: subgrid;
+  grid-template-rows: 2fr repeat(3, 1fr);
+}
+
+.length-title{
+  flex-grow: 1;
+}
+
+.length div {
+    display: inline-block;
+}
+
 
 .timer {
     background-color:#baffc9;
