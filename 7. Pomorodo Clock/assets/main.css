@@ -3,7 +3,6 @@ body {
 }
 
 .box {
-    height: 200px;
     width: 500px;
     border: 1px solid black;
     margin: auto;
@@ -13,12 +12,14 @@ body {
 
 .setting-container {
     position: relative;
-    top: 20%;
+    top: 15%;
     left: 8%;
+    margin: 30px 0;
     display: grid;
     grid-template-rows: 2fr repeat(3, 1fr);
-    grid-row-gap: 10px;
+    grid-row-gap: 12px;
     justify-items: stretch;
+    display: none;
 }
 
 .setting-title {
@@ -26,21 +27,79 @@ body {
 }
 
 .length {
-  width: 30%;
-  background-color:#ffdfba;
-  display: subgrid;
-  grid-template-rows: 2fr repeat(3, 1fr);
+    width: 40%;
+    display: flex;
+    justify-content:flex-end;
 }
 
-.length-title{
-  flex-grow: 1;
+.length-title {
+    flex-grow: 1; /* Allow the title to take the whole left space */
 }
 
-.length div {
-    display: inline-block;
+.button {
+    width: 15px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
 }
 
+.set-value {
+    width: 30px;
+    text-align: center;
+}
 
 .timer {
     background-color:#baffc9;
+}
+
+
+/* =====================
+       Timer style
+======================*/
+
+.timer-container {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#timer-section {
+    height: 100%;
+    margin: 10px 0 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.back-settings {
+    color: red;
+}
+
+#timer-val-min {
+    font-size: 1.5em;
+}
+
+#timer-val-sec {
+    position: relative;
+    top: 3px;
+    vertical-align: top;
+    font-size: 0.6em;   
+}
+
+.btn-play {
+    height: 100%;
+    width: 80px;
+    text-align: center;
+    background-color: black;
+    color: rgba(112, 106, 106, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.pause {
+    display: none;
 }

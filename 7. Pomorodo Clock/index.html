@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pomodoro Clock</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="./assets/main.css">
 </head>
 <body>
@@ -13,33 +14,41 @@
             <div class="setting-title">Settings</div>
             <div class="length">
                 <span class="length-title">Session</span>
-                <div type="button" onClick="decreaseVal('session-value')">-</div>  
-                <div id="session-value">25</div>
-                <div type="button" onClick="increaseVal('session-value')">+</div>
+                <div class="button" onClick="decreaseVal('session-value')">-</div>  
+                <div id="session-value" class="set-value">25</div>
+                <div class="button" onClick="increaseVal('session-value')">+</div>
             </div>
             <div class="length">
                 <span class="length-title">Break</span>
-                <div type="button" onClick="decreaseVal('break-value')">-</div>
-                <span id="break-value">5</span>
-                <div type="button" onClick="increaseVal('break-value')">+</div>
+                <div class="button" onClick="decreaseVal('break-value')">-</div>
+                <span id="break-value" class="set-value">5</span>
+                <div class="button" onClick="increaseVal('break-value')">+</div>
             </div>
             <div class="length">
                 <span class="length-title">Long break</span>
-                <div type="button" onClick="decreaseVal('break-lg-value')">-</div>
-                <span id="break-lg-value">15</span>
-                <div type="button" onClick="increaseVal('break-lg-value')">+</div>
+                <div class="button" onClick="decreaseVal('break-lg-value')">-</div>
+                <span id="break-lg-value" class="set-value">15</span>
+                <div class="button" onClick="increaseVal('break-lg-value')">+</div>
+            </div>
+        </div>
+        <div class="timer-container">
+            <div id="timer-section">
+                <div class="back-settings">
+                    <i class="fas fa-cogs fa-sm"></i>
+                </div>
+                <div class="container">
+                    <span id="timer-val-min">25</span>
+                    <span id="timer-val-sec">00</span>
+                </div>
+            </div>
+            <div class="btn-play" onClick="toggleTimer()">
+                <div class="play"><i class="fas fa-play fa-2x"></i></div>
+                <div class="pause"><i class="fas fa-pause fa-2x"></i></div>
             </div>
         </div>
     </div>
 
-    <div class="timer" onClick="toggleTimer()">
-        <p>timer</p>
-        <div id="timer-value">
-            <span id="timer-val-min">25</span>
-            <span>:</span>
-            <span id="timer-val-sec">00</span>
-        </div>
-    </div>
+
 </body>
 <script src="./assets/script.js"></script>
 </html>
