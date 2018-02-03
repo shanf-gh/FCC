@@ -82,10 +82,23 @@ function toggleTimer() {
 }
 
 function switchPane() {
+    var settingPane = document.getElementById('setting-container');
+    var timerPane = document.getElementById('timer-container');
+
     // Switch between settings and timer panel
-    document.getElementById('setting-container').style.display = 'block';
-    document.getElementById('timer-container').style.display = 'none';
+    if (settingPane.style.display === 'none') {
+        settingPane.style.display = 'grid';
+        timerPane.style.display = 'none';
+    } else {
+        settingPane.style.display = 'none';
+        timerPane.style.display = 'flex';
+    }
+
     if (isRunning) {
         toggleTimer();
     }
+}
+
+function timerFiller() {
+    
 }
