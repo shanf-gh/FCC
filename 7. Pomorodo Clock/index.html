@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="box">
-        <div class="setting-container">
+        <div id="setting-container">
             <div class="setting-title">Settings</div>
             <div class="length">
                 <span class="length-title">Session</span>
@@ -31,10 +31,10 @@
                 <div class="button" onClick="increaseVal('break-lg-value')">+</div>
             </div>
         </div>
-        <div class="timer-container">
+        <div id="timer-container">
             <div id="timer-section">
-                <div class="back-settings">
-                    <i class="fas fa-cogs fa-sm"></i>
+                <div class="back-settings" onClick="switchPane()">
+                    <i class="fas fa-cogs"></i>
                 </div>
                 <div class="container">
                     <span id="timer-val-min">25</span>
@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="btn-play" onClick="toggleTimer()">
-                <div class="play"><i class="fas fa-play fa-2x"></i></div>
-                <div class="pause"><i class="fas fa-pause fa-2x"></i></div>
+                <div id="play"><i class="fas fa-play fa-2x"></i></div>
+                <div id="pause"><i class="fas fa-pause fa-2x"></i></div>
             </div>
         </div>
     </div>

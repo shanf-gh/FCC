@@ -38,12 +38,16 @@ function toggleTimer() {
     var min = document.getElementById('timer-val-min');
     var sec = document.getElementById('timer-val-sec');
     nextBreak = !nextBreak;
-    console.log('toggled');
+
     if (isRunning) {
         isRunning = !isRunning;
+        document.getElementById('play').style.display = 'block';
+        document.getElementById('pause').style.display = 'none';
         clearInterval(secInterval);
     } else {
         isRunning = !isRunning;
+        document.getElementById('play').style.display = 'none';
+        document.getElementById('pause').style.display = 'block';
         secInterval = setInterval(function() {
             var secVal = sec.innerHTML;
 
@@ -74,5 +78,14 @@ function toggleTimer() {
                 sec.innerHTML = ('0' + secVal).slice(-2);
             }
         }, 1000);
+    }
+}
+
+function switchPane() {
+    // Switch between settings and timer panel
+    document.getElementById('setting-container').style.display = 'block';
+    document.getElementById('timer-container').style.display = 'none';
+    if (isRunning) {
+        toggleTimer();
     }
 }
