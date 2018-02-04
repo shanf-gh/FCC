@@ -7,8 +7,7 @@ body {
     border: 1px solid black;
     margin: auto;
     margin-top: 150px;
-    background-color: #ffdfba;
-    border-radius: 20px;
+    background-color: rgba(0,0,0,0.4);
 }
 
 #setting-container {
@@ -17,8 +16,8 @@ body {
     top: 15%;
     left: 8%;
     margin: 30px 0;
-    /* display: grid; */
-    display: none;
+    display: grid;
+    /* display: none; */
     grid-template-rows: 2fr repeat(3, 1fr);
     grid-template-columns: repeat(2,1fr);
     grid-row-gap: 12px;
@@ -89,16 +88,21 @@ body {
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
-    border-radius: 20px 0 0 20px;
-    background: linear-gradient(90deg, #FFC0CB 90%, #00FFFF 10%);
+    color: #0D2625;
 }
 
+#progress {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(to bottom, #2775c4 0%,#2989d8 40%,#7db9e8 100%);
+}
 
 .back-settings {
     margin: 5px 0 0 15px;
 }
 
 #timer-container .container {
+    min-width: 50px;
     margin: 0 0 3px 15px;
 }
 
@@ -118,12 +122,11 @@ body {
     margin-top: 5px;
     width: 80px;
     text-align: center;
-    background-color: #000;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);   
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0 15px 15px 0;
+    color: #fff;
 }
 
 #pause {
