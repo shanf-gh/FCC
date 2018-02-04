@@ -14,21 +14,21 @@
             <div class="setting-title">Settings</div>
             <div class="length">
                 <span class="length-title">Session</span>
-                <div class="button" onClick="decreaseVal('session-value')">-</div>  
+                <div class="button" onClick="changeVal('session-value','-')">-</div>  
                 <div id="session-value" class="set-value">25</div>
-                <div class="button" onClick="increaseVal('session-value')">+</div>
+                <div class="button" onClick="changeVal('session-value', '+')">+</div>
             </div>
             <div class="length">
                 <span class="length-title">Break</span>
-                <div class="button" onClick="decreaseVal('break-value')">-</div>
+                <div class="button" onClick="changeVal('break-value','-')">-</div>  
                 <span id="break-value" class="set-value">5</span>
-                <div class="button" onClick="increaseVal('break-value')">+</div>
+                <div class="button" onClick="changeVal('break-value','+')">+</div>  
             </div>
             <div class="length">
                 <span class="length-title">Long break</span>
-                <div class="button" onClick="decreaseVal('break-lg-value')">-</div>
+                <div class="button" onClick="changeVal('break-lg-value','-')">-</div>  
                 <span id="break-lg-value" class="set-value">15</span>
-                <div class="button" onClick="increaseVal('break-lg-value')">+</div>
+                <div class="button" onClick="changeVal('break-lg-value','+')">+</div>  
             </div>
             <div class="btn-start" onClick="switchPane()">
                 <P>Click to start</P>
@@ -37,12 +37,14 @@
         </div>
         <div id="timer-container">
             <div id="timer-section">
-                <div class="back-settings" onClick="switchPane()">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <div class="container">
-                    <span id="timer-val-min">25</span>
-                    <span id="timer-val-sec">00</span>
+                <div id="progress">
+                    <div class="back-settings" onClick="switchPane()">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="container">
+                        <span id="timer-val-min">25</span>
+                        <span id="timer-val-sec">00</span>
+                    </div>
                 </div>
             </div>
             <div class="btn-play" onClick="toggleTimer()">
