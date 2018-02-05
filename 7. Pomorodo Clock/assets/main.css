@@ -6,7 +6,7 @@ body {
     width: 500px;
     border: 1px solid black;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 50px;
     background-color: rgba(0,0,0,0.4);
 }
 
@@ -93,8 +93,19 @@ body {
 
 #progress {
     height: 100%;
-    width: 20%;
+    width: 0%;
+}
+
+.session {
+    background: linear-gradient(to bottom, #991e20 0%,#d1272a 40%,#e27a7c 100%);
+}
+
+.break {
     background: linear-gradient(to bottom, #2775c4 0%,#2989d8 40%,#7db9e8 100%);
+}
+
+.lg-break {
+    background: linear-gradient(to bottom, #1e991e 0%,#28d628 40%,#28d628 100%);
 }
 
 .back-settings {

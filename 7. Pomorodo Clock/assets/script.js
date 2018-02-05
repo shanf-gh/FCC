@@ -12,7 +12,7 @@ function changeVal(id, type) {
     display.innerHTML = currVal;
 
     // change the value of the session length
-    if (id === 'session-value') {
+    if (id === 'session-value' && currId === 'session-value') {
         document.getElementById('timer-val-min').innerHTML = currVal;
         document.getElementById('timer-val-sec').innerHTML = '00';
     }
@@ -21,10 +21,13 @@ function changeVal(id, type) {
 // set switch variables
 var isRunning = false;
 var nextBreak = false;
+var sessionCount = 0;
 // secInterval needs to be declared outside the function toggleTimer 
 // otherwise will create a new var for every click and won't be able
 // to properly clearInterval on it
 var secInterval;
+var currId = 'session-value';  // defines current displayed value so that changes in settings do not reset timer
+var timerVal = 0;
 
 function toggleTimer() {
     var min = document.getElementById('timer-val-min');
@@ -32,13 +35,15 @@ function toggleTimer() {
     nextBreak = !nextBreak;
 
     if (isRunning) {
-        // toggle the isRunning variable
+        // pause the timer
+        // toggle isRunning variable
         isRunning = !isRunning;
         // Toggle which icon is shown on the play section
         document.getElementById('play').style.display = 'block';
         document.getElementById('pause').style.display = 'none';
         clearInterval(secInterval);
     } else {
+        timerVal = document.getElementById(currId).innerHTML;
         // toggle the isRunning variable
         isRunning = !isRunning;
         // Toggle which icon is shown on the play section
@@ -59,11 +64,25 @@ function toggleTimer() {
                     // Stop the clock
                     clearInterval(secInterval);
                     // Switch the value of id 
-                    var id = nextBreak ? 'break-value' : 'session-value';
+                    if (nextBreak) {
+                        if (sessionCount % 4 === 0) { 
+                            currId = 'break-lg-value';
+                            currProgStyle = 'lg-break';
+                        } else {                    
+                            currId = 'break-value';
+                            currProgStyle = 'break';
+                        }
+                    } else {
+                        currId = 'session-value';
+                        currProgStyle = 'session';
+                        sessionCount += 1;
+                    }
+                    // change color of progress bar
+                    document.getElementById('progress').className = currProgStyle;
                     // reset variables
                     isRunning = !isRunning;
                     // Change the displayed value of minutes
-                    min.innerHTML = ('0' + document.getElementById(id).innerHTML).slice(-2);
+                    min.innerHTML = ('0' + timerVal).slice(-2);
                     // restart the clock with the break or session
                     toggleTimer();
                 } else {
@@ -83,8 +102,9 @@ function toggleTimer() {
             // calculate remaining time
             var remaining = min.innerHTML * 60 + parseInt(sec.innerHTML); 
             // calculate maxtime
-            var maxtime = sessionMax * 60;
-            // manipulate linear gradient to follow timer
+            console.log(timerVal);
+            var maxtime = timerVal * 60;
+            // manipulate width to show timer progress
             timerFiller(remaining, maxtime);
         }, 1000);
     }
