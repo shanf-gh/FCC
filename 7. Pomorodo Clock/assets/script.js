@@ -1,3 +1,17 @@
+// set switch variables
+var isRunning = false;
+var nextBreak = false;
+var sessionCount = 0;
+// secInterval needs to be declared outside the function toggleTimer 
+// otherwise will create a new var for every click and won't be able
+// to properly clearInterval on it
+var secInterval;
+var currId = 'session-value';  // defines current displayed value so that changes in settings do not reset timer
+var timerVal = document.getElementById(currId).innerHTML;
+// global element selector
+var min = document.getElementById('timer-val-min');
+var sec = document.getElementById('timer-val-sec');
+
 function changeVal(id, type) {
     var display = document.getElementById(id);
     var currVal = parseInt(display.innerHTML);
@@ -15,46 +29,31 @@ function changeVal(id, type) {
     if (id === 'session-value' && currId === 'session-value') {
         document.getElementById('timer-val-min').innerHTML = currVal;
         document.getElementById('timer-val-sec').innerHTML = '00';
+        timerVal = currVal;
     }
 }
 
-// set switch variables
-var isRunning = false;
-var nextBreak = false;
-var sessionCount = 0;
-// secInterval needs to be declared outside the function toggleTimer 
-// otherwise will create a new var for every click and won't be able
-// to properly clearInterval on it
-var secInterval;
-var currId = 'session-value';  // defines current displayed value so that changes in settings do not reset timer
-var timerVal = 0;
-
 function toggleTimer() {
-    var min = document.getElementById('timer-val-min');
-    var sec = document.getElementById('timer-val-sec');
     nextBreak = !nextBreak;
 
     if (isRunning) {
-        // pause the timer
-        // toggle isRunning variable
-        isRunning = !isRunning;
+        isRunning = !isRunning;     // toggle running status
         // Toggle which icon is shown on the play section
-        document.getElementById('play').style.display = 'block';
-        document.getElementById('pause').style.display = 'none';
+        toggleDisplay('play', 'block');
+        toggleDisplay('pause', 'none');
         clearInterval(secInterval);
     } else {
-        timerVal = document.getElementById(currId).innerHTML;
-        // toggle the isRunning variable
-        isRunning = !isRunning;
+        isRunning = !isRunning;     // toggle running status
         // Toggle which icon is shown on the play section
-        document.getElementById('play').style.display = 'none';
-        document.getElementById('pause').style.display = 'block';
+        toggleDisplay('play', 'none');
+        toggleDisplay('pause', 'block');
 
         // Timer function
         secInterval = setInterval(function() {
             // Get the current value of seconds
             var secVal = sec.innerHTML;
-
+            // change color of progress bar
+            document.getElementById('progress').className = currId.substr(0, currId.length - 6);
             // Decrement logics
             if (secVal === "00") {
                 // seconds display 0
@@ -65,36 +64,29 @@ function toggleTimer() {
                     clearInterval(secInterval);
                     // Switch the value of id 
                     if (nextBreak) {
-                        if (sessionCount % 4 === 0) { 
+                        if (sessionCount % 4 === 0 && sessionCount > 1) {
                             currId = 'break-lg-value';
-                            currProgStyle = 'lg-break';
                         } else {                    
                             currId = 'break-value';
-                            currProgStyle = 'break';
                         }
                     } else {
                         currId = 'session-value';
-                        currProgStyle = 'session';
                         sessionCount += 1;
                     }
-                    // change color of progress bar
-                    document.getElementById('progress').className = currProgStyle;
                     // reset variables
                     isRunning = !isRunning;
+                    timerVal = document.getElementById(currId).innerHTML;
                     // Change the displayed value of minutes
                     min.innerHTML = ('0' + timerVal).slice(-2);
                     // restart the clock with the break or session
                     toggleTimer();
                 } else {
-                    // Decrease the minutes
+                    // Decrease and display the minutes
                     minVal -= 1;
-                    // Display the minutes
                     min.innerHTML = ('0' + minVal).slice(-2);
-                    // Reset seconds
-                    sec.innerHTML = 59;
+                    sec.innerHTML = 59;                                 // Reset seconds
                 }
-            } else {
-                // Decrease the seconds
+            } else {                                                    // Decrease the seconds
                 secVal -= 1;
                 sec.innerHTML = ('0' + secVal).slice(-2);
             }
@@ -102,7 +94,6 @@ function toggleTimer() {
             // calculate remaining time
             var remaining = min.innerHTML * 60 + parseInt(sec.innerHTML); 
             // calculate maxtime
-            console.log(timerVal);
             var maxtime = timerVal * 60;
             // manipulate width to show timer progress
             timerFiller(remaining, maxtime);
@@ -111,16 +102,13 @@ function toggleTimer() {
 }
 
 function switchPane() {
-    var settingPane = document.getElementById('setting-container');
-    var timerPane = document.getElementById('timer-container');
-
     // Switch between settings and timer panel
-    if (settingPane.style.display === 'none') {
-        settingPane.style.display = 'grid';
-        timerPane.style.display = 'none';
+    if (document.getElementById('setting-container').style.display === 'none') {
+        toggleDisplay('setting-container', 'grid');
+        toggleDisplay('timer-container', 'none');
     } else {
-        settingPane.style.display = 'none';
-        timerPane.style.display = 'flex';
+        toggleDisplay('setting-container', 'none');
+        toggleDisplay('timer-container', 'flex');
     }
 
     if (isRunning) {
@@ -128,7 +116,30 @@ function switchPane() {
     }
 }
 
+function toggleDisplay (id, displayValue) {
+    document.getElementById(id).style.display = displayValue;
+}
+
 function timerFiller(remaining, maxtime) {
     var progressPerc = Math.round((maxtime - remaining) / maxtime * 100 * 100) / 100;
     document.getElementById('progress').style.width = progressPerc + '%';
+}
+
+function reset() {
+    // stop the timer if
+    if(isRunning) {
+        isRunning = !isRunning;
+        clearInterval(secInterval);
+    }
+    nextBreak = false;
+    sessionCount = 0;
+
+    currId = 'session-value';
+    timerVal = document.getElementById(currId).innerHTML;
+    min.innerHTML = timerVal;
+    sec.innerHTML = '00';
+    document.getElementById('progress').style.width = '0%';
+
+    // restart the timer
+    toggleTimer();
 }

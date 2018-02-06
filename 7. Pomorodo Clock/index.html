@@ -6,48 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pomodoro Clock</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
     <link rel="stylesheet" href="./assets/main.css">
 </head>
 <body>
+    <div id="title">
+        <h1>My Pomodoro Clock</h1>
+    </div>
+
     <div class="box">
         <div id="setting-container">
             <div class="setting-title">Settings</div>
-            <div class="length">
+            <div class="setting-length">
                 <span class="length-title">Session</span>
-                <div class="button" onClick="changeVal('session-value','-')">-</div>  
+                <div class="button pointer" onClick="changeVal('session-value','-')">-</div>  
                 <div id="session-value" class="set-value">25</div>
-                <div class="button" onClick="changeVal('session-value', '+')">+</div>
+                <div class="button pointer" onClick="changeVal('session-value', '+')">+</div>
             </div>
-            <div class="length">
+            <div class="setting-length">
                 <span class="length-title">Break</span>
-                <div class="button" onClick="changeVal('break-value','-')">-</div>  
+                <div class="button pointer" onClick="changeVal('break-value','-')">-</div>  
                 <span id="break-value" class="set-value">5</span>
-                <div class="button" onClick="changeVal('break-value','+')">+</div>  
+                <div class="button pointer" onClick="changeVal('break-value','+')">+</div>  
             </div>
-            <div class="length">
+            <div class="setting-length">
                 <span class="length-title">Long break</span>
-                <div class="button" onClick="changeVal('break-lg-value','-')">-</div>  
+                <div class="button pointer" onClick="changeVal('break-lg-value','-')">-</div>  
                 <span id="break-lg-value" class="set-value">15</span>
-                <div class="button" onClick="changeVal('break-lg-value','+')">+</div>  
+                <div class="button pointer" onClick="changeVal('break-lg-value','+')">+</div>  
             </div>
-            <div class="btn-start" onClick="switchPane()">
-                <P>Click to start</P>
+            <div class="btn-start pointer" onClick="switchPane()">
+                <p>Click to start</p>
                 <i class="fas fa-clock fa-4x"></i>
             </div>
         </div>
         <div id="timer-container">
             <div id="timer-section">
                 <div id="progress" class="session">
-                    <div class="back-settings" onClick="switchPane()">
-                        <i class="fas fa-cogs"></i>
+                    <div class="back-settings">
+                        <i class="fas fa-cogs pointer" onClick="switchPane()"></i>
+                        <div class="pointer" onClick="reset()">reset</div>
                     </div>
                     <div class="container">
-                        <span id="timer-val-min">00</span>
-                        <span id="timer-val-sec">01</span>
+                        <span id="timer-val-min">25</span>
+                        <span id="timer-val-sec">00</span>
                     </div>
                 </div>
             </div>
-            <div class="btn-play" onClick="toggleTimer()">
+            <div class="btn-play pointer" onClick="toggleTimer()">
                 <div id="play"><i class="fas fa-play fa-2x"></i></div>
                 <div id="pause"><i class="fas fa-pause fa-2x"></i></div>
             </div>
