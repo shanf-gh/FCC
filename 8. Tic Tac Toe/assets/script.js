@@ -10,15 +10,11 @@ var circle = '<i class="far fa-circle fa-5x">';
 
 var turnCross = true; // true: next click will show cross
 var gameOver = false;
+var nextMove = null;
 
 var boardStatus = new Array(9).fill(null);
-var squares = document.getElementsByClassName('square');
-
-// squares.forEach(function(el, i){
-//     square[i] = el.firstChild.classList[1];
-// });
-
-console.log(squares);
+// Define board status for test
+boardStatus = ['o',null,'x','x',null,null,'x','o','o'];
 
 // =======================================================
 //                      Logics
@@ -38,38 +34,88 @@ function handleClick(element) {
     // toggle for next turn
     turnCross = !turnCross;
     // check if won
-    checkBoard();
+    var wonPlayer = checkBoard(boardStatus);
+    if (wonPlayer) {
+        gameOver = true;
+        console.log(wonPlayer + ' won!');
+    }
+
+    // computer turn
 }
 
 function restart() {
 
 }
 
-function checkBoard() {
+function checkBoard(game) {
     var winTable = [
         [0,1,2], [3,4,5], [6,7,8], // rows
         [0,3,6], [1,4,7], [2,5,8], // columns
         [0,4,8], [2,4,6]           // diagonals
     ];
 
-    winTable.forEach(function(combination) {
-        if(boardStatus[combination[0]] !== null && 
-            boardStatus[combination[0]] === boardStatus[combination[1]] &&
-            boardStatus[combination[0]] === boardStatus[combination[2]] ) {
+    for (var i = 0, n = winTable.length; i < n; i++) {
+        var combination = winTable[i];
+        if (game[combination[0]] !== null && 
+            game[combination[0]] === game[combination[1]] &&
+            game[combination[0]] === game[combination[2]] ) {
              // winning combination
-             gameOver = true;
-             return gameOver;
+             return game[combination[0]];
          }
-    })
+    }
+
+    if(!game.includes(null)) {
+        return 'draw';
+    }
+
     return 0;
 }
 
 // Computer turn
+(function computer(game, nextCross) {
+    if (checkBoard(game)) {
+        console.log(game);
+        var scoring = score(game);
+        console.log('scoring: ' + scoring);
+        return scoring;
+    }
+    var scores = [];
+    var moves = [];
+    var move = nextCross ? 'x' : 'o';
 
-function computer() {
-    
-    
+    game.forEach(function(item, index) {
+        if(!item) {
+            var possibleGame = game.slice(); // Use of slice method to copy the array
+            possibleGame[index] = move;
+            scores.push(computer(possibleGame, !nextCross));
+            moves.push(index);
+        }
+    });
+    console.log('score array: ');
+    console.log(scores);
+    // min - max calculation
+    // if (move === 'x') {
+    //     // max calc
 
-    // toggle for next turn
-    turnCross = !turnCross;
+    // } else {
+    //     // min calc
+
+    // }
+
+})(boardStatus, true)
+
+function score(game) {
+    console.log('Scoring...');
+    // if player start computer is 'o'
+    // else computer is 'x'
+    var player = checkBoard(game);
+    console.log('player: ' + player);
+    if (player === 'x') {
+        return 10;
+    } else if (player === 'o') {
+        return -10;
+    } else {
+        return 0;
+    }
+
 }
