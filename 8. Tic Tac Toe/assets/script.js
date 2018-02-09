@@ -14,7 +14,7 @@ var nextMove = null;
 
 var boardStatus = new Array(9).fill(null);
 // Define board status for test
-boardStatus = ['o',null,'x','x',null,null,'x','o','o'];
+boardStatus = ['o',null,'x','x',null,null,'x','o','x'];
 
 // =======================================================
 //                      Logics
@@ -54,6 +54,11 @@ function checkBoard(game) {
         [0,4,8], [2,4,6]           // diagonals
     ];
 
+    // Handle draw
+    if(!game.includes(null)) {
+        return 'draw';
+    }
+
     for (var i = 0, n = winTable.length; i < n; i++) {
         var combination = winTable[i];
         if (game[combination[0]] !== null && 
@@ -63,22 +68,17 @@ function checkBoard(game) {
              return game[combination[0]];
          }
     }
-
-    if(!game.includes(null)) {
-        return 'draw';
-    }
-
     return 0;
 }
 
 // Computer turn
-(function computer(game, nextCross) {
+var choice;
+function computer(game, nextCross, depth) {
     if (checkBoard(game)) {
         console.log(game);
-        var scoring = score(game);
-        console.log('scoring: ' + scoring);
-        return scoring;
+        return score(game, depth);
     }
+    depth += 1;
     var scores = [];
     var moves = [];
     var move = nextCross ? 'x' : 'o';
@@ -87,35 +87,55 @@ function checkBoard(game) {
         if(!item) {
             var possibleGame = game.slice(); // Use of slice method to copy the array
             possibleGame[index] = move;
-            scores.push(computer(possibleGame, !nextCross));
+            scores.push(computer(possibleGame, !nextCross, depth));
             moves.push(index);
         }
     });
-    console.log('score array: ');
-    console.log(scores);
-    // min - max calculation
-    // if (move === 'x') {
-    //     // max calc
+    if (move === 'x') {
+        // max calc
+        var val = scores.reduce(function(a, b) {
+            return Math.max(a,b);
+        });
+        choice = moves[scores.indexOf(val)];
+        return(val);
+    } else {
+        // min calc
+        var val = scores.reduce(function(a, b) {
+            return Math.min(a,b);
+        });
+        choice = moves[scores.indexOf(val)];
+        return(val);
+    }
+}
 
-    // } else {
-    //     // min calc
-
-    // }
-
-})(boardStatus, true)
-
-function score(game) {
-    console.log('Scoring...');
-    // if player start computer is 'o'
-    // else computer is 'x'
-    var player = checkBoard(game);
-    console.log('player: ' + player);
-    if (player === 'x') {
-        return 10;
-    } else if (player === 'o') {
-        return -10;
+function score(game, depth) {
+    // Score the game and define the related score
+    console.log('depth score: ');
+    console.log(typeof depth);
+    console.log(depth);
+    var won = checkBoard(game);
+    if (won === 'x') {
+        return 10 - depth;
+    } else if (won === 'o') {
+        return depth - 10;
     } else {
         return 0;
     }
-
 }
+
+function test() {
+    scores = computer(boardStatus, true, 0);
+    console.log('printing scores');
+    console.log(scores);
+    console.log(choice);
+}
+
+test()
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+ }
