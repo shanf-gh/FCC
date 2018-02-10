@@ -2,6 +2,11 @@
 //                      Initialize
 // =======================================================
 
+// Assumptions
+// x plays first
+// Human is x, computer is o
+
+
 var playerStart = true; // true: player plays first
 
 // fontawsome icons
@@ -14,7 +19,7 @@ var nextMove = null;
 
 var boardStatus = new Array(9).fill(null);
 // Define board status for test
-boardStatus = ['o',null,'x','x',null,null,'x','o','x'];
+// boardStatus = ['o',null,'x','x',null,null,'x','o','o'];
 
 // =======================================================
 //                      Logics
@@ -28,6 +33,7 @@ function handleClick(element) {
         // console.log('This square is not empty!');
         return 0;
     }
+    
     // show cross or circle based on turnCross boolean
     square.innerHTML = turnCross ? cross : circle;
     boardStatus[id - 1] = turnCross ? 'x' : 'o';
@@ -39,8 +45,20 @@ function handleClick(element) {
         gameOver = true;
         console.log(wonPlayer + ' won!');
     }
+    computerTurn();
+}
 
+function computerTurn() {
     // computer turn
+    minmax(boardStatus, false, 0);
+    boardStatus[choice] = turnCross ? 'x' : 'o';
+    document.getElementById(choice+1).innerHTML = turnCross ? cross : circle;
+    turnCross = !turnCross;
+    var wonPlayer = checkBoard(boardStatus);
+    if (wonPlayer) {
+        gameOver = true;
+        console.log(wonPlayer + ' won!');
+    }
 }
 
 function restart() {
@@ -73,9 +91,9 @@ function checkBoard(game) {
 
 // Computer turn
 var choice;
-function computer(game, nextCross, depth) {
+function minmax(game, nextCross, depth) {
     if (checkBoard(game)) {
-        console.log(game);
+        // console.log(game);
         return score(game, depth);
     }
     depth += 1;
@@ -87,11 +105,11 @@ function computer(game, nextCross, depth) {
         if(!item) {
             var possibleGame = game.slice(); // Use of slice method to copy the array
             possibleGame[index] = move;
-            scores.push(computer(possibleGame, !nextCross, depth));
+            scores.push(minmax(possibleGame, !nextCross, depth));
             moves.push(index);
         }
     });
-    if (move === 'x') {
+    if (move === 'o') {
         // max calc
         var val = scores.reduce(function(a, b) {
             return Math.max(a,b);
@@ -110,27 +128,15 @@ function computer(game, nextCross, depth) {
 
 function score(game, depth) {
     // Score the game and define the related score
-    console.log('depth score: ');
-    console.log(typeof depth);
-    console.log(depth);
     var won = checkBoard(game);
-    if (won === 'x') {
+    if (won === 'o') {
         return 10 - depth;
-    } else if (won === 'o') {
+    } else if (won === 'x') {
         return depth - 10;
     } else {
         return 0;
     }
 }
-
-function test() {
-    scores = computer(boardStatus, true, 0);
-    console.log('printing scores');
-    console.log(scores);
-    console.log(choice);
-}
-
-test()
 
 function wait(ms){
     var start = new Date().getTime();

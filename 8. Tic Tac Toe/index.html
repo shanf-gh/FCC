@@ -5,13 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tic Tac Toe</title>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
     <link rel="stylesheet" href="./assets/main.css">
 </head>
 <body>
     <div class="container">
-        <div class="title">Tic Tac Toe</div>
+        <div class="title">
+            <h1>Tic Tac Toe</h1>
+        </div>
 
-        <table>
+        <div class="settings">
+            <div class="title">
+                Who are you?
+            </div>
+            <div><i class="fas fa-times fa-3x"></i></div>
+            <div><i class="far fa-circle fa-2x"></i></div>
+        </div>
+
+        <!-- <table>
             <tr>
                 <td id='1' class="square" onClick='handleClick(this)'><i class="far fa-circle fa-5x"></i></td>
                 <td id='2' class="square" onClick='handleClick(this)'></td>
@@ -27,9 +38,9 @@
                 <td id='8' class="square" onClick='handleClick(this)'><i class="far fa-circle fa-5x"></i></td>
                 <td id='9' class="square" onClick='handleClick(this)'><i class="far fa-circle fa-5x"></i></td>
             </tr>
-        </table>
+        </table> -->
 
-        <!-- <table>
+        <table>
             <tr>
                 <td id='1' onClick='handleClick(this)'></td>
                 <td id='2' onClick='handleClick(this)'></td>
@@ -45,11 +56,11 @@
                 <td id='8' onClick='handleClick(this)'></td>
                 <td id='9' onClick='handleClick(this)'></td>
             </tr>
-        </table> -->
+        </table>
+    </div>
 
-        <div class="footer">
-            Coded by Fabien SHAN, 2018
-        </div>
+    <div class="footer">
+        Coded by Fabien SHAN, 2018
     </div>
 </body>
 <script src="./assets/script.js"></script>
