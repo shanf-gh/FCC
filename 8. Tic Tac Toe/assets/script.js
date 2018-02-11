@@ -1,68 +1,83 @@
 // =======================================================
 //                      Initialize
 // =======================================================
-
-// Assumptions
-// x plays first
-// Human is x, computer is o
-
-
 var playerStart = true; // true: player plays first
 
-// fontawsome icons
+// fontawesome icons
 var cross = '<i class="fas fa-times fa-6x">';
 var circle = '<i class="far fa-circle fa-5x">';
 
 var turnCross = true; // true: next click will show cross
-var gameOver = false;
-var nextMove = null;
+var gameOver = false; 
 
 var boardStatus = new Array(9).fill(null);
-// Define board status for test
-// boardStatus = ['o',null,'x','x',null,null,'x','o','o'];
 
 // =======================================================
-//                      Logics
+//                      Game Logics
 // =======================================================
+
+// player select if play 'x' or 'o'
+function selectPlay(player) {
+    // modify the variables
+    playerStart = player === 'x' ? true : false;
+    // hide the settings div
+    document.getElementById('settings').style.display = 'none';
+    // display the board
+    document.getElementById('gameBoard').style.display = 'inline-block';
+    // if player select o. Computer starts
+    if (!playerStart) computerTurn();
+}
+
 function handleClick(element) {
     var id = element.id;
     var square = document.getElementById(id);
 
     // if square is not empty -> error or if gameOver
     if (square.innerHTML !== "" || gameOver) {
-        // console.log('This square is not empty!');
         return 0;
     }
     
-    // show cross or circle based on turnCross boolean
-    square.innerHTML = turnCross ? cross : circle;
-    boardStatus[id - 1] = turnCross ? 'x' : 'o';
-    // toggle for next turn
-    turnCross = !turnCross;
-    // check if won
-    var wonPlayer = checkBoard(boardStatus);
-    if (wonPlayer) {
-        gameOver = true;
-        console.log(wonPlayer + ' won!');
-    }
+    play(id);
     computerTurn();
 }
 
 function computerTurn() {
+    var board = document.getElementById('grid');
+
     // computer turn
-    minmax(boardStatus, false, 0);
-    boardStatus[choice] = turnCross ? 'x' : 'o';
-    document.getElementById(choice+1).innerHTML = turnCross ? cross : circle;
-    turnCross = !turnCross;
-    var wonPlayer = checkBoard(boardStatus);
-    if (wonPlayer) {
-        gameOver = true;
-        console.log(wonPlayer + ' won!');
-    }
+    minmax(boardStatus, turnCross, 0);
+    // enclosed logics in setTimeout to give a more natural flow
+    board.style.pointerEvents = 'none';
+    setTimeout(function(){
+        play(choice);
+        board.style.pointerEvents = 'auto';
+    }, 1000);
 }
 
-function restart() {
+function play(id) {
+    var square = document.getElementById(id);
+    var currPlayer = document.getElementById('currPlayer');
 
+    // modify DOM
+    square.innerHTML = turnCross ? cross : circle;
+    square.className = '';
+    
+    // modify board status
+    currPlayer.innerHTML = !turnCross ? 'x' : 'o';
+    boardStatus[id] = turnCross ? 'x' : 'o';
+    turnCross = !turnCross;
+
+    var wonPlayer = checkBoard(boardStatus);
+    if (wonPlayer) { 
+        var str;
+        gameOver = true;
+        if (wonPlayer === 'draw') {
+            str = '<p>Draw!</p>';
+        } else {
+            str = '<p>' + wonPlayer + ' won!</p>';
+        }
+        document.getElementById('whoseTurn').innerHTML = str;
+    }
 }
 
 function checkBoard(game) {
@@ -89,13 +104,10 @@ function checkBoard(game) {
     return 0;
 }
 
-// Computer turn
+// minmax algorithm
 var choice;
 function minmax(game, nextCross, depth) {
-    if (checkBoard(game)) {
-        // console.log(game);
-        return score(game, depth);
-    }
+    if (checkBoard(game)) return score(game, depth);
     depth += 1;
     var scores = [];
     var moves = [];
@@ -109,21 +121,17 @@ function minmax(game, nextCross, depth) {
             moves.push(index);
         }
     });
-    if (move === 'o') {
-        // max calc
+    if (move === 'o') { // max calc
         var val = scores.reduce(function(a, b) {
             return Math.max(a,b);
         });
-        choice = moves[scores.indexOf(val)];
-        return(val);
-    } else {
-        // min calc
+    } else {    // min calc
         var val = scores.reduce(function(a, b) {
             return Math.min(a,b);
         });
-        choice = moves[scores.indexOf(val)];
-        return(val);
     }
+    choice = moves[scores.indexOf(val)];
+    return(val);
 }
 
 function score(game, depth) {
@@ -138,10 +146,20 @@ function score(game, depth) {
     }
 }
 
-function wait(ms){
-    var start = new Date().getTime();
-    var end = start;
-    while(end < start + ms) {
-      end = new Date().getTime();
-   }
- }
+
+function restart() {
+    turnCross = true; // true: next click will show cross
+    gameOver = false; 
+    // display the settings div
+    document.getElementById('settings').style.display = 'grid';
+    // hide the board
+    document.getElementById('gameBoard').style.display = 'none';
+    // board title
+    document.getElementById('whoseTurn').innerHTML = '<p><span id="currPlayer">X</span>&#8217;s turn</p>';
+
+    // reset the board
+    boardStatus = new Array(9).fill(null);
+    for(var i = 0; i < 9; i++) {
+        document.getElementById(i).innerHTML = '';
+    }
+}
