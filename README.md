@@ -7,21 +7,21 @@ Original from [KaliaHaze](https://gist.github.com/KaliaHaze/633e93581ebace3bde62
 
 ### Basic Front End Development Projects
 
-- [x] Build a Tribute Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-tribute-page) | [Demo](https://codepen.io/X140hu4/full/qRWoeo/) | [Source Code](https://codepen.io/X140hu4/pen/qRWoeo)
-- [x] Build a Personal Portfolio Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage) | [Demo](https://codepen.io/X140hu4/full/WZLLQQ/) | [Source Code](https://codepen.io/X140hu4/pen/WZLLQQ/)
+- [x] Build a Tribute Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-tribute-page) | [Demo](https://codepen.io/X140hu4/full/qRWoeo/) | [Source Code](https://codepen.io/X140hu4/pen/qRWoeo/)
+- [x] Build a Personal Portfolio Page | [Requirements](http://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage) | [Demo](https://codepen.io/X140hu4/full/WZLLQQ/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/1.%20Portfolio/Ver_MED)
 
 ### Intermediate Front End Development Projects
 
-- [x] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | [Demo](https://codepen.io/X140hu4/full/Yrgqbq/) | [Source Code](https://codepen.io/X140hu4/pen/Yrgqbq)
-- [x] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](https://codepen.io/X140hu4/full/Bwbdby/) | [Source Code](https://codepen.io/X140hu4/pen/Bwbdby)
-- [x] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | [Demo](https://codepen.io/X140hu4/full/gXMZrR/) | [Source Code](https://codepen.io/X140hu4/pen/gXMZrR)
-- [x] Use the Twitch.tv JSON API | [Requirements](http://www.freecodecamp.com/challenges/use-the-twitchtv-json-api) | [Demo](https://codepen.io/X140hu4/full/KyaZvX/) | [Source Code](https://codepen.io/X140hu4/pen/KyaZvX)
+- [x] Build a Random Quote Machine | [Requirements](http://www.freecodecamp.com/challenges/build-a-random-quote-machine) | [Demo](https://codepen.io/X140hu4/full/Yrgqbq/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/2.%20Random%20Quote%20Machine)
+- [x] Show the Local Weather | [Requirements](http://www.freecodecamp.com/challenges/show-the-local-weather) | [Demo](https://codepen.io/X140hu4/full/Bwbdby/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/3.%20Local%20Weather)
+- [x] Build a Wikipedia Viewer | [Requirements](http://www.freecodecamp.com/challenges/build-a-wikipedia-viewer) | [Demo](https://codepen.io/X140hu4/full/gXMZrR/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/4.%20Wikipedia%20Viewer)
+- [x] Use the Twitch.tv JSON API | [Requirements](http://www.freecodecamp.com/challenges/use-the-twitchtv-json-api) | [Demo](https://codepen.io/X140hu4/full/KyaZvX/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/5.%20Twitchtv)
 
 ### Advanced Front End Development Projects
 
-- [x] Build a JavaScript Calculator | [Requirements](http://www.freecodecamp.com/challenges/build-a-javascript-calculator) | [Demo](https://codepen.io/X140hu4/full/QaXMbv) | [Source Code](https://codepen.io/X140hu4/pen/QaXMbv)
-- [ ] Build a Pomodoro Clock | [Requirements](http://www.freecodecamp.com/challenges/build-a-pomodoro-clock) | Demo | Source Code
-- [ ] Build a Tic Tac Toe Game | [Requirements](http://www.freecodecamp.com/challenges/build-a-tic-tac-toe-game) | Demo | Source Code
+- [x] Build a JavaScript Calculator | [Requirements](http://www.freecodecamp.com/challenges/build-a-javascript-calculator) | [Demo](https://codepen.io/X140hu4/full/QaXMbv) | [Source Code](https://github.com/X140hu4/FCC/tree/master/6.%20JS%20Calculator)
+- [x] Build a Pomodoro Clock | [Requirements](http://www.freecodecamp.com/challenges/build-a-pomodoro-clock) | [Demo](https://codepen.io/X140hu4/full/mXyMvg/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/7.%20Pomorodo%20Clock)
+- [x] Build a Tic Tac Toe Game | [Requirements](http://www.freecodecamp.com/challenges/build-a-tic-tac-toe-game) | [Demo](https://codepen.io/X140hu4/full/oEzVpE/) | [Source Code](https://github.com/X140hu4/FCC/tree/master/8.%20Tic%20Tac%20Toe)
 - [ ] Build a Simon Game | [Requirements](http://www.freecodecamp.com/challenges/build-a-simon-game) | Demo | Source Code
 
 ## Data Visualization Certification
