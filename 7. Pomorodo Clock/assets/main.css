@@ -106,12 +106,16 @@ body {
 }
 
 .back-settings {
-    width: 70px;
+    width: 140px;
     margin: 10px 0 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
+}
+
+#currTimer {
+    color: #673567;
 }
 
 #timer-container .container {

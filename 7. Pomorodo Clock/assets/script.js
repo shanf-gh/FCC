@@ -16,7 +16,7 @@ function changeVal(id, type) {
     var display = document.getElementById(id);
     var currVal = parseInt(display.innerHTML);
 
-    if (type === '-' && currVal > 0) {
+    if (type === '-' && currVal > 1) {
         currVal -= 1;
     } else if (type == '+') {
         currVal += 1;
@@ -63,19 +63,24 @@ function toggleTimer() {
                     // Stop the clock
                     clearInterval(secInterval);
                     // Switch the value of id 
+                    var str;
                     if (nextBreak) {
                         if (sessionCount % 4 === 0 && sessionCount > 1) {
                             currId = 'break-lg-value';
+                            str = 'Long break';
                         } else {                    
                             currId = 'break-value';
+                            str = 'Break';
                         }
                     } else {
                         currId = 'session-value';
                         sessionCount += 1;
+                        str = 'Working';
                     }
                     // reset variables
                     isRunning = !isRunning;
                     timerVal = document.getElementById(currId).innerHTML;
+                    document.getElementById('currTimer').innerHTML = str;
                     // Change the displayed value of minutes
                     min.innerHTML = ('0' + timerVal).slice(-2);
                     // restart the clock with the break or session
