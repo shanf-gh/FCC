@@ -1,0 +1,37 @@
+body {
+    background: url('http://images.all-free-download.com/images/graphiclarge/wood_grain_highdefinition_picture_3_169735.jpg');
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#game-device {
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    margin: auto;
+    background-color: rgba(0,0,0,0.9);
+    /* grid settings */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+
+/* buttons color from: http://www.color-hex.com/color-palette/17204 */
+.top-left {
+    background-color: rgb(62,221,75);
+}
+
+.top-right {
+    background-color: rgb(221,75,62);
+}
+
+.bottom-left {
+    background-color: rgb(255,234,55);
+}
+
+.bottom-right {
+    background-color: rgb(75,62,221);
+}
