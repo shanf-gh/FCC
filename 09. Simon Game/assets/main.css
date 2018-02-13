@@ -13,25 +13,57 @@ body {
     margin: auto;
     background-color: rgba(0,0,0,0.9);
     /* grid settings */
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); */
 }
 
 
 /* buttons color from: http://www.color-hex.com/color-palette/17204 */
-.top-left {
-    background-color: rgb(62,221,75);
+
+.game-button {
+    /* box styling */
+    height: 45%;
+    width: 45%;
+    /* positioning */
+    position: absolute;
 }
 
+
+.top-left {
+    /* box styling */
+    border-radius: 100% 0 0 0;
+    /* positioning */
+    top: 5%;
+    left: 5%;
+    /* styling */
+    background-color: rgb(62,221,75);
+}
 .top-right {
+    /* box styling */
+    border-radius: 0 100% 0 0;
+    /* positioning */
+    top: 5%;
+    right: 5%;
+    /* styling */
     background-color: rgb(221,75,62);
+}
+.bottom-right {
+    /* box styling */
+    border-radius: 0 0 100% 0;
+    /* positioning */
+    bottom: 5%;
+    right: 5%;
+    /* styling */
+    background-color: rgb(75,62,221);
 }
 
 .bottom-left {
+    /* box styling */
+    border-radius: 0 0 0 100%;
+    /* positioning */
+    bottom: 5%;
+    left: 5%;
+    /* styling */
     background-color: rgb(255,234,55);
-}
-
-.bottom-right {
-    background-color: rgb(75,62,221);
 }
