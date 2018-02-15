@@ -57,6 +57,39 @@ body {
 }
 
 /*==========================
+        Controls
+==========================*/
+#panel {
+    height: 72%;
+    width: 54%;
+    /* positioning */
+    position: absolute;
+    bottom: 14%;
+    left: 23%;
+    z-index:3;
+    /* grid */
+    display: grid;
+    grid-template-rows: 3fr repeat(3, 1fr);
+}
+
+#power-btn {
+    /* temp */
+    color: red;
+    /* box style */
+    width: 100%;
+    /* grid settings */
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.power-slide__toggle {
+    width: 60%;
+    height: 100%;
+    /* margin-left: 40%; */
+    background-color: blue;
+}
+
+/*==========================
         Buttons
 ==========================*/
 
