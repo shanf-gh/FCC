@@ -15,8 +15,8 @@ body {
 ==========================*/
 
 #game-device {
-    height: 500px;
-    width: 500px;
+    height: 700px;
+    width: 700px;
     border-radius: 50%;
     margin: auto;
     background-color: #000;
@@ -72,20 +72,69 @@ body {
     grid-template-rows: 3fr repeat(3, 1fr);
 }
 
+/* Last/Start/Longest */
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid */
+    display: grid;
+    justify-items: center;
+}
+
+.button {
+    height: 22px;
+    width: 22px;
+    margin: auto;
+    /* positioning */
+    position:relative;
+    /* styling */
+    background-color:#000;
+    border-radius: 50%;
+}
+
+.button::before {
+    content: '';
+    height: 60%;
+    width: 60%;
+    /* positioning */
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: 2;
+    /* styling */
+    background-color:yellow;
+    border-radius: 50%;
+}
+
+.button.start::before {
+    background-color: red;
+}
+
+.title {
+    height: 30%;
+    margin-top: 3px;
+    /* styling */
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* ON/OFF */
+
 #power-btn {
-    /* temp */
-    color: red;
+    margin: 0 auto;
     /* box style */
-    width: 100%;
+    width: 60%;
     /* grid settings */
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    align-content: end;
 }
 
 .power-slide__toggle {
     width: 60%;
-    height: 100%;
-    /* margin-left: 40%; */
+    height: 80%;
+    align-self: center;
     background-color: blue;
 }
 
