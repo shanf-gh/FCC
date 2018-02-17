@@ -3,10 +3,10 @@
 // ========================
 
 function toggleButton() {
-    if(this.style.marginLeft === "40%") {
+    if(this.style.marginLeft === "20%") {
         this.style.marginLeft = 0;
     } else {
-        this.style.marginLeft = "40%";
+        this.style.marginLeft = "20%";
     }
 }
 

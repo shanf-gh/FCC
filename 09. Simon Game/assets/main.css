@@ -72,6 +72,20 @@ body {
     grid-template-rows: 3fr repeat(3, 1fr);
 }
 
+/* row toggle 1 */
+
+#row-toggle-1 {
+    background-color: red;
+}
+
+.game {
+    /* background-color: yellow; */
+}
+
+.skill-level {
+    /* background-color: blue; */
+}
+
 /* Last/Start/Longest */
 
 #buttons {
@@ -131,11 +145,23 @@ body {
     align-content: end;
 }
 
+.power-slide {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
 .power-slide__toggle {
-    width: 60%;
-    height: 80%;
+    width: 80%;
+    height: 70%;
     align-self: center;
-    background-color: blue;
+    /* background-color: rgb(221,75,62); */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#580d00+0,ca1e00+45,ff4e2f+50,ff4e2f+50,ca1e00+55,761200+100 */
+    background: #580d00; /* Old browsers */
+    background: -moz-linear-gradient(left,  #580d00 0%, #ca1e00 45%, #ff4e2f 50%, #ff4e2f 50%, #ca1e00 55%, #761200 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #580d00 0%,#ca1e00 45%,#ff4e2f 50%,#ff4e2f 50%,#ca1e00 55%,#761200 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #580d00 0%,#ca1e00 45%,#ff4e2f 50%,#ff4e2f 50%,#ca1e00 55%,#761200 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#580d00', endColorstr='#761200',GradientType=1 ); /* IE6-9 */
 }
 
 /*==========================
