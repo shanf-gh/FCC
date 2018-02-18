@@ -1,3 +1,7 @@
+/*==========================
+        General
+==========================*/
+
 body {
     background: url('http://images.all-free-download.com/images/graphiclarge/wood_grain_highdefinition_picture_3_169735.jpg');
 }
@@ -6,18 +10,193 @@ body {
     cursor: pointer;
 }
 
+/*==========================
+        Board
+==========================*/
+
 #game-device {
-    height: 500px;
-    width: 500px;
+    height: 700px;
+    width: 700px;
     border-radius: 50%;
     margin: auto;
     background-color: #000;
     /* grid settings */
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 
+/* outer circle */
+#controls {
+    height: 50%;
+    width: 50%;
+    background-color: black;
+    /* positioning */
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    z-index: 1;
+    /* styling */
+    border-radius: 50%;
+}
+
+/* inner circle */
+#controls::before {
+    content: '';
+    height: 90%;
+    width: 90%;
+    /* positioning */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 2;
+    /* styling */
+    background-color: #C0C0C0;
+    border-radius: 50%;
+}
+
+/*==========================
+        Controls
+==========================*/
+#panel {
+    height: 72%;
+    width: 54%;
+    /* positioning */
+    position: absolute;
+    bottom: 14%;
+    left: 23%;
+    z-index:3;
+    /* grid */
+    display: grid;
+    grid-template-rows: 3fr repeat(3, 1fr);
+}
+
+/* row toggle 1 */
+
+#row-toggle-1 {
+    /* grid */
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.game {
+    /* grid */
+    display: grid;
+    grid-template-rows: 80% 20%;
+    align-content: end;
+
+}
+
+.game .power-slide {
+    grid-column: 1/4;
+
+}
+
+.game span {
+    grid-column: 1/4;
+    text-align: center;
+    font-size: 0.7em;
+}
+
+.skill-level {
+    /* grid */
+    display: grid;
+    grid-template-rows: 70% 30%;
+    align-content: end;
+
+}
+
+.skill-level span {
+    text-align: center;
+    font-size: 0.7em;
+}
+
+.skill-level .power-slide__toggle {
+    height: 90%;
+}
+
+/* Last/Start/Longest */
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid */
+    display: grid;
+    justify-items: center;
+}
+
+.button {
+    height: 22px;
+    width: 22px;
+    margin: auto;
+    /* positioning */
+    position: relative;
+    /* styling */
+    background-color:#000;
+    border-radius: 50%;
+}
+
+.button::before {
+    content: '';
+    height: 60%;
+    width: 60%;
+    /* positioning */
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: 2;
+    /* styling */
+    background-color:yellow;
+    border-radius: 50%;
+}
+
+.button.start::before {
+    background-color: red;
+}
+
+.title {
+    height: 30%;
+    margin-top: 3px;
+    /* styling */
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* ON/OFF */
+
+#power-btn {
+    margin: 0 auto;
+    /* box style */
+    width: 60%;
+    /* grid settings */
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-content: end;
+}
+
+.power-slide {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.power-slide__toggle {
+    width: 80%;
+    height: 70%;
+    align-self: center;
+    /* background-color: rgb(221,75,62); */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#580d00+0,ca1e00+45,ff4e2f+50,ff4e2f+50,ca1e00+55,761200+100 */
+    background: #580d00; /* Old browsers */
+    background: -moz-linear-gradient(left,  #580d00 0%, #ca1e00 45%, #ff4e2f 50%, #ff4e2f 50%, #ca1e00 55%, #761200 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #580d00 0%,#ca1e00 45%,#ff4e2f 50%,#ff4e2f 50%,#ca1e00 55%,#761200 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #580d00 0%,#ca1e00 45%,#ff4e2f 50%,#ff4e2f 50%,#ca1e00 55%,#761200 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#580d00', endColorstr='#761200',GradientType=1 ); /* IE6-9 */
+}
+
+/*==========================
+        Buttons
+==========================*/
 
 /* buttons color from: http://www.color-hex.com/color-palette/17204 */
 
@@ -32,97 +211,39 @@ body {
 .top-left {
     /* box styling */
     border-radius: 100% 0 0 0;
-    padding: 0 3% 3% 0;
+    margin: 0 3% 3% 0;
     /* styling */
     align-self: end;
     justify-self: end;
     background-color: rgb(62,221,75);
 }
 
-.top-left::before {
-    /* box styling */
-    height: 55%;
-    width: 55%;
-    border-radius: 100% 0 0 0;
-    content: '';
-    /* position */
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    /* styling */
-    background: #000;
-}
-
 .top-right {
     /* box styling */
     border-radius: 0 100% 0 0;
-    padding: 0 0 3% 3%;
+    margin: 0 0 3% 3%;
     /* styling */
     align-self: end;
     justify-self: start;
     background-color: rgb(221,75,62);
 }
 
-.top-right::before {
-    /* box styling */
-    height: 55%;
-    width: 55%;
-    border-radius: 0 100% 0 0;
-    content: '';
-    /* position */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    /* styling */
-    background: #000;
-}
-
 .bottom-right {
     /* box styling */
     border-radius: 0 0 100% 0;
-    padding: 3% 0 0 3%;
+    margin: 3% 0 0 3%;
     /* styling */
     align-self: start;
     justify-self: start;
     background-color: rgb(75,62,221);
 }
 
-.bottom-right::before {
-    /* box styling */
-    height: 55%;
-    width: 55%;
-    border-radius: 0 0 100% 0;
-    content: '';
-    /* position */
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* styling */
-    background: #000;
-}
-
 .bottom-left {
     /* box styling */
     border-radius: 0 0 0 100%;
-    padding: 3% 3% 0 0;
+    margin: 3% 3% 0 0;
     /* styling */
     align-self: start;
     justify-self: end;
     background-color: rgb(255,234,55);
 }
-
-.bottom-left::before {
-    /* box styling */
-    height: 55%;
-    width: 55%;
-    border-radius: 0 0 0 100%;
-    content: '';
-    /* position */
-    position: absolute;
-    top: 0;
-    right: 0;
-    /* styling */
-    background: #000;
-}
-
-
