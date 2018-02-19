@@ -20,7 +20,7 @@ body {
     border-radius: 50%;
     margin: auto;
     background-color: #000;
-    /* grid settings */
+    
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -32,12 +32,12 @@ body {
     height: 50%;
     width: 50%;
     background-color: black;
-    /* positioning */
+    
     position: absolute;
     top: 25%;
     left: 25%;
     z-index: 1;
-    /* styling */
+    
     border-radius: 50%;
 }
 
@@ -46,12 +46,12 @@ body {
     content: '';
     height: 90%;
     width: 90%;
-    /* positioning */
+    
     position: absolute;
     top: 5%;
     left: 5%;
     z-index: 2;
-    /* styling */
+    
     background-color: #C0C0C0;
     border-radius: 50%;
 }
@@ -62,14 +62,15 @@ body {
 #panel {
     height: 72%;
     width: 54%;
-    /* positioning */
+    
     position: absolute;
     bottom: 14%;
     left: 23%;
     z-index:3;
-    /* grid */
+    
     display: grid;
     grid-template-rows: 3fr repeat(2, 1fr);
+    text-align: center;
 }
 
 /* row toggle 1 */
@@ -83,15 +84,21 @@ body {
 
 .colDiv {
     display: grid;
-    text-align: center;
     grid-template-rows: 1fr 1fr; 
 }
 .game .colDiv {
     grid-template-columns: repeat(5, 1fr);
 }
 
+.game .slide__toggle {
+    grid-column-start: 2;
+}
+
 .skill-level .colDiv {
     grid-template-columns: repeat(7, 1fr);
+}
+.skill-level .slide__toggle {
+    grid-column-start: 3;
 }
 
 .first {
@@ -115,6 +122,7 @@ body {
     width: 60%;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
+    grid-column-gap: 3px;
 }
 
 #power .colDiv {
@@ -162,11 +170,8 @@ body {
 }
 
 .title {
-    height: 30%;
     margin-top: 3px;
-    /* styling */
     font-size: 0.8em;
-    text-align: center;
 }
 
 .power-slide__toggle {
@@ -193,6 +198,8 @@ body {
     width: 85%;
     /* positioning */
     position: relative;
+    transition:all 0.2s ease-in-out;
+    opacity: 0.5;
 }
 
 .top-left {
@@ -233,4 +240,9 @@ body {
     align-self: start;
     justify-self: end;
     background-color: rgb(255,234,55);
+}
+
+.active {
+    transition:all 0.1s ease-in-out;
+    opacity: 1;
 }
