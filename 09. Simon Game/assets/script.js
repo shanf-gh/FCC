@@ -20,66 +20,80 @@ function toggleButton() {
 const powerToggle = Array.from(document.getElementsByClassName('slide__toggle'));
 powerToggle.forEach(toggle => toggle.addEventListener('click', toggleButton));
 
+function startGame() {
+    computerTurn();
+}
+
+document.getElementsByClassName("js-start")[0].addEventListener('click', startGame);
+
+
 // ========================
-//        Game logics
+//      Game environment
 // ========================
 
 // Playing sounds
 
-function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${this.dataset.key}"]`);
-    audio.currentTime = 0;
-    audio.play();
+function playSound() {
+    var key = this.dataset.key;
+    playButton(key);
+    // if (playerTurn) {
+    //     player.push(key);
+    //     console.log("Player: ");
+    //     console.log(player);
+    // }
 }
 
 const buttons = Array.from(document.querySelectorAll('.game-button'));
 buttons.forEach(button => button.addEventListener('click',playSound));
 
-// Registering player's game
-// playable buttons
-const buttonsKey = ['green', 'red', 'blue', 'yellow']
+// ========================
+//        Game logics
+// ========================
+const buttonsKey = ['green', 'red', 'blue', 'yellow']       // playable buttons
+var computerSequence = [];                                  // Computer sequence
+var playerSequence = 0;                                      // Array to register the player
+var playerTurn = true;
 
-// Computer sequence
-var computerSequence = [];
-
-function startGame() {
+function computerTurn() {
     const min = 0;
     const max = 3;
     var random = Math.floor(Math.random() * (max - min) + 1) + min;
     var playKey = buttonsKey[random];
     
-    if(computerSequence.length>0) {
-        for (let i = 0; i < computerSequence.length; i++) {
-            playButton(computerSequence[i]);    
-        }
-
-        // computerSequence.forEach(key => playButton(key));
+    for (let i = 0; i <= computerSequence.length; i++) {
+        (function(val) {
+            setTimeout(() => {
+                if (i === computerSequence.length) {
+                    playButton(playKey)
+                    computerSequence.push(playKey);
+                } else {
+                    playButton(val);
+                }
+            }, 1000 * i);
+        })(computerSequence[i]);
     }
-    console.log("played new!");
-    playButton(playKey);  
-    computerSequence.push(playKey);   
-    console.log(computerSequence);
 }
 
-function playButton(button) {
-    const audio = document.querySelector(`audio[data-key="${button}"]`);
-    audio.play();
-}
 
-document.getElementsByClassName("js-start")[0].addEventListener('click', startGame);
-
-// Array to register the player
-var player = [];
-
-// listening function
-function playSound2(e) {
-    const audio = document.querySelector(`audio[data-key="${this.dataset.key}"]`);
-    const button = this;
+// WORK IN PROGRESS HERE
+function playButton(key) {
+    const audio = document.querySelector(`audio[data-key="${key}"]`);
     audio.currentTime = 0;
     audio.play();
-    player.push(button.dataset.key);
+    activateButton(key);
+    if(playerTurn) {
+        console.log(computerSequence);
+        console.log(key === computerSequence[playerSequence]);
+        playerSequence++;
+    }
+    computerTurn;
 
-    button.classList.toggle("active")
+}
+
+function activateButton (key) {
+    const button = document.querySelector(`div[data-key="${key}"]`); 
+    button.classList.toggle("active");
     setTimeout(() => button.classList.toggle("active"),500);
 }
-buttons.forEach(button => button.addEventListener('click',playSound2));
+
+
