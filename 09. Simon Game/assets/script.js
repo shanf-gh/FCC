@@ -51,21 +51,22 @@ buttons.forEach(button => button.addEventListener('click',playSound));
 // ========================
 const buttonsKey = ['green', 'red', 'blue', 'yellow']       // playable buttons
 var computerSequence = [];                                  // Computer sequence
-var playerSequence = 0;                                      // Array to register the player
-var playerTurn = true;
+var playerSequence = 0;                                     // Array to register the player
+var playerTurn = false;
 
 function computerTurn() {
-    const min = 0;
     const max = 3;
-    var random = Math.floor(Math.random() * (max - min) + 1) + min;
-    var playKey = buttonsKey[random];
+    var random = Math.floor(Math.random() * max + 1);
+    var newKey = buttonsKey[random];
+    console.log("computerTurn");
     
     for (let i = 0; i <= computerSequence.length; i++) {
         (function(val) {
             setTimeout(() => {
                 if (i === computerSequence.length) {
-                    playButton(playKey)
-                    computerSequence.push(playKey);
+                    playButton(newKey)
+                    computerSequence.push(newKey);
+                    playerTurn = !playerTurn;
                 } else {
                     playButton(val);
                 }
@@ -74,20 +75,48 @@ function computerTurn() {
     }
 }
 
+function replaySequence() {
+    for (let i = 0; i <= computerSequence.length; i++) {
+        (function(val) {
+            setTimeout(() => {
+                if (i === computerSequence.length) {
+                    playerTurn = !playerTurn;
+                } else {
+                    playButton(val);
+                }
+            }, 1000 * i);
+        })(computerSequence[i]);
+    }
+}
 
-// WORK IN PROGRESS HERE
 function playButton(key) {
     const audio = document.querySelector(`audio[data-key="${key}"]`);
     audio.currentTime = 0;
     audio.play();
     activateButton(key);
-    if(playerTurn) {
-        console.log(computerSequence);
-        console.log(key === computerSequence[playerSequence]);
-        playerSequence++;
+    
+    // Check played key vs computer sequence
+    if (playerTurn) {
+        if(computerSequence[playerSequence] === key) {
+            if(playerSequence === computerSequence.length - 1) {
+                playerSequence = 0;
+                playerTurn = !playerTurn;
+                setTimeout(() => {
+                    computerTurn();
+                }, 2000); 
+            } else {
+                console.log("Sequence is correct!!!!");
+                playerSequence++;
+            }
+        } else {
+            console.log("Sequence is wrong!!!!");
+            playerTurn = !playerTurn;
+            playerSequence = 0;
+            setTimeout(() => {
+                replaySequence();
+            }, 1500); 
+        }
     }
-    computerTurn;
-
 }
 
 function activateButton (key) {
