@@ -91,7 +91,7 @@ body {
 }
 
 .game .slide__toggle {
-    grid-column-start: 2;
+    grid-column-start: 1;
 }
 
 .skill-level .colDiv {
