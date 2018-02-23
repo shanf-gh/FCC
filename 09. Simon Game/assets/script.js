@@ -16,7 +16,10 @@ function toggleButton() {
     const curVal = parseInt(window.getComputedStyle(this).getPropertyValue('grid-column-start'));
     const nrPosition = this.dataset.position;
     const btnName = this.dataset.btn;
-    if (environmentVar.power === 2 && this.dataset.btn !== 'power') return; // power === 1 is off, 2 is on
+    // disable toggling buttons when the game has started
+    if (environmentVar.gameStart && 
+        environmentVar.power === 2 && 
+        this.dataset.btn !== 'power') return; // power === 1 is off, 2 is on
 
     var newVal = 1;
     if(!curVal) {
@@ -24,24 +27,27 @@ function toggleButton() {
     } else if (curVal < nrPosition) {
         newVal = curVal + 1;
     }
+    // update toggle position
     this.style.gridColumnStart = newVal;
+    // update variable's value
     environmentVar[btnName] = newVal;
 }
 
 buttonToggle.forEach(toggle => toggle.addEventListener('click', toggleButton));
 
-function isOn() {
-    if (environmentVar.power === 1) return 1; // power === 1 is off, 2 is on
-}
-
 function startGame() {
-    if (environmentVar.power === 1) return; // power === 1 is off, 2 is on
+    if (environmentVar.power === 1) return 1; // power === 1 is off, 2 is on
+    environmentVar.gameStart = !environmentVar.gameStart;
 
-    computerTurn();
+    if(environmentVar.gameStart) {
+        computerTurn();
+    } else {
+        computerSequence = [];      // reset the computer sequence
+    }
 }
-
 
 document.getElementsByClassName("js-start")[0].addEventListener('click', startGame);
+document.getElementsByClassName("js-last")[0].addEventListener('click', replaySequence);
 
 
 // ========================
@@ -49,7 +55,6 @@ document.getElementsByClassName("js-start")[0].addEventListener('click', startGa
 // ========================
 
 // Playing sounds
-
 function playSound() {
     var key = this.dataset.key;
     playButton(key);
@@ -63,6 +68,7 @@ buttons.forEach(button => button.addEventListener('click',playSound));
 // ========================
 const buttonsKey = ['green', 'red', 'blue', 'yellow']       // playable buttons
 var computerSequence = [];                                  // Computer sequence
+var longestSequence = [];                                   // Longest sequence played
 var playerSequence = 0;                                     // Array to register the player
 var playerTurn = false;
 
@@ -80,8 +86,6 @@ function computerTurn() {
     var random = Math.floor(Math.random() * max + 1);
     var newKey = buttonsKey[random];
     console.log("computerTurn");
-    
-    
 
     for (let i = 0; i <= computerSequence.length; i++) {
         (function(val) {
@@ -119,7 +123,7 @@ function playButton(key) {
     activateButton(key);
     
     // Check played key vs computer sequence
-    if (playerTurn) {
+    if (environmentVar.gameStart && playerTurn) {
         if(computerSequence[playerSequence] === key) {
             if(playerSequence === computerSequence.length - 1) {
                 playerSequence = 0;
