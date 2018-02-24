@@ -36,13 +36,15 @@ function toggleButton() {
 buttonToggle.forEach(toggle => toggle.addEventListener('click', toggleButton));
 
 function startGame() {
-    if (environmentVar.power === 1) return 1; // power === 1 is off, 2 is on
+    if (environmentVar.power === 1) return; // power === 1 is off, 2 is on
     environmentVar.gameStart = !environmentVar.gameStart;
 
     if(environmentVar.gameStart) {
         computerTurn();
     } else {
+        console.log("turned off");
         computerSequence = [];      // reset the computer sequence
+        playerTurn = !playerTurn;
     }
 }
 
@@ -57,6 +59,7 @@ document.getElementsByClassName("js-last")[0].addEventListener('click', replaySe
 // Playing sounds
 function playSound() {
     var key = this.dataset.key;
+    if (!playerTurn) return; // power === 1 is off, 2 is on
     playButton(key);
 }
 
@@ -82,7 +85,7 @@ var skillLevel = {
 
 
 function computerTurn() {
-    const max = 3;
+    let max = 3;
     let newKey = getKey(buttonsKey, max);
     const seqLen = computerSequence.length;
     
@@ -91,11 +94,11 @@ function computerTurn() {
     computerSequence[seqLen-1] === computerSequence[seqLen-2] &&
     computerSequence[seqLen-1] === newKey) {
         // filter array
-        const filtbuttons = buttonsKey.filter(key => key !== newKey);
+        let filtbuttons = buttonsKey.filter(key => key !== newKey);
         // redefine maximum choices and newKey
-        newKey = getKey(filtbuttons, max--)
+        newKey = getKey(filtbuttons, max--);
     }
-    
+
     // replay sequence and play newKey
     // OPTIMIZATION OPPORTUNITY
     // call replaySequence then play newKey
