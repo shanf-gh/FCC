@@ -83,14 +83,26 @@ var skillLevel = {
 
 function computerTurn() {
     const max = 3;
-    var random = Math.floor(Math.random() * max + 1);
-    var newKey = buttonsKey[random];
-    console.log("computerTurn");
-
-    for (let i = 0; i <= computerSequence.length; i++) {
+    let newKey = getKey(buttonsKey, max);
+    const seqLen = computerSequence.length;
+    
+    // check that the newKey is different than the two last one
+    if ( seqLen > 1 &&
+    computerSequence[seqLen-1] === computerSequence[seqLen-2] &&
+    computerSequence[seqLen-1] === newKey) {
+        // filter array
+        const filtbuttons = buttonsKey.filter(key => key !== newKey);
+        // redefine maximum choices and newKey
+        newKey = getKey(filtbuttons, max--)
+    }
+    
+    // replay sequence and play newKey
+    // OPTIMIZATION OPPORTUNITY
+    // call replaySequence then play newKey
+    for (let i = 0; i <= seqLen; i++) {
         (function(val) {
             setTimeout(() => {
-                if (i === computerSequence.length) {
+                if (i === seqLen) {
                     playButton(newKey)
                     computerSequence.push(newKey);
                     playerTurn = !playerTurn;
@@ -100,6 +112,11 @@ function computerTurn() {
             }, 1000 * i);
         })(computerSequence[i]);
     }
+}
+
+function getKey(arr, max) {
+    var random = Math.floor(Math.random() * max + 1);
+    return arr[random];
 }
 
 function replaySequence() {
@@ -117,6 +134,7 @@ function replaySequence() {
 }
 
 function playButton(key) {
+    if (!environmentVar.gameStart) return; // power === 1 is off, 2 is on
     const audio = document.querySelector(`audio[data-key="${key}"]`);
     audio.currentTime = 0;
     audio.play();
