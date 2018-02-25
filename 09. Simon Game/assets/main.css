@@ -115,6 +115,11 @@ body {
     align-items: center;
 }
 
+.screen-content {
+    color:#B80100;
+    opacity: 0.5;
+}
+
 /* skill level toggle */
 .skill-level .colDiv {
     grid-template-columns: repeat(7, 1fr);

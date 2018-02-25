@@ -2,6 +2,7 @@
 //        Controls
 // ========================
 const buttonToggle = Array.from(document.getElementsByClassName('slide__toggle'));
+const screenContent = document.querySelector(".js-screen-content");
 var environmentVar = {
     gameStart: false,
 };
@@ -19,7 +20,7 @@ function toggleButton() {
     // disable toggling buttons when the game has started
     if (environmentVar.gameStart && 
         environmentVar.power === 2 && 
-        this.dataset.btn !== 'power') return; // power === 1 is off, 2 is on
+        btnName !== 'power') return; // power === 1 is off, 2 is on
 
     var newVal = 1;
     if(!curVal) {
@@ -31,6 +32,8 @@ function toggleButton() {
     this.style.gridColumnStart = newVal;
     // update variable's value
     environmentVar[btnName] = newVal;
+
+    if (btnName === 'power') screenContent.classList.toggle("active");
 }
 
 buttonToggle.forEach(toggle => toggle.addEventListener('click', toggleButton));
@@ -120,6 +123,7 @@ function computerTurn() {
                 if (i === seqLen) {
                     playButton(newKey)
                     computerSequence.push(newKey);
+                    display(('0' + computerSequence.length).slice(-2));
                     playerTurn = !playerTurn;
                 } else {
                     playButton(val);
@@ -186,3 +190,7 @@ function activateButton (key) {
 }
 
 
+// Display the value in the screen area
+function display(val) {
+    screenContent.textContent = val;
+}
