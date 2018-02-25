@@ -73,6 +73,14 @@ body {
     text-align: center;
 }
 
+/* Head */
+
+#head {
+    font-size: 3em;
+    align-self: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
 /* row toggle 1 */
 
 #row-toggle-1 {
@@ -86,14 +94,28 @@ body {
     display: grid;
     grid-template-rows: 1fr 1fr; 
 }
-.game .colDiv {
-    grid-template-columns: repeat(5, 1fr);
+
+/* Screen display */
+.display {
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.game .slide__toggle {
-    grid-column-start: 1;
+.screen {
+    box-sizing: border-box;
+    height: 90%;
+    width: 80%;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-color: #525c39;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* skill level toggle */
 .skill-level .colDiv {
     grid-template-columns: repeat(7, 1fr);
 }
@@ -246,3 +268,6 @@ body {
     transition:all 0.1s ease-in-out;
     opacity: 1;
 }
+
+/* test */
+

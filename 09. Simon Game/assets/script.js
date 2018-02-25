@@ -97,8 +97,7 @@ function computerTurn() {
     }
 
     // increase speed
-    if (seqLen && seqLen < 15
-        && seqLen % 4 === 0) {
+    if (seqLen && seqLen < 15 && seqLen % 4 === 0) {
         speed -= 200;
     }
     
