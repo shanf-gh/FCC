@@ -70,6 +70,7 @@ buttons.forEach(button => button.addEventListener('click',playSound));
 //        Game logics
 // ========================
 const buttonsKey = ['green', 'red', 'blue', 'yellow']       // playable buttons
+let speed = 1000;
 var computerSequence = [];                                  // Computer sequence
 var longestSequence = [];                                   // Longest sequence played
 var playerSequence = 0;                                     // Array to register the player
@@ -85,9 +86,21 @@ var skillLevel = {
 
 
 function computerTurn() {
-    let max = 3;
+    let max = 4;
     let newKey = getKey(buttonsKey, max);
-    const seqLen = computerSequence.length;
+    let seqLen = computerSequence.length;
+
+    // check if game finished
+    if(seqLen > skillLevel[environmentVar.skill] - 1) {
+        console.log('you win');
+        return;
+    }
+
+    // increase speed
+    if (seqLen && seqLen < 15
+        && seqLen % 4 === 0) {
+        speed -= 200;
+    }
     
     // check that the newKey is different than the two last one
     if ( seqLen > 1 &&
@@ -112,13 +125,13 @@ function computerTurn() {
                 } else {
                     playButton(val);
                 }
-            }, 1000 * i);
+            }, speed * i);
         })(computerSequence[i]);
     }
 }
 
 function getKey(arr, max) {
-    var random = Math.floor(Math.random() * max + 1);
+    var random = Math.floor(Math.random() * max);
     return arr[random];
 }
 
@@ -131,7 +144,7 @@ function replaySequence() {
                 } else {
                     playButton(val);
                 }
-            }, 1000 * i);
+            }, speed * i);
         })(computerSequence[i]);
     }
 }
@@ -151,7 +164,7 @@ function playButton(key) {
                 playerTurn = !playerTurn;
                 setTimeout(() => {
                     computerTurn();
-                }, 2000); 
+                }, speed * 2); 
             } else {
                 console.log("Sequence is correct!!!!");
                 playerSequence++;
@@ -162,7 +175,7 @@ function playButton(key) {
             playerSequence = 0;
             setTimeout(() => {
                 replaySequence();
-            }, 1500); 
+            }, speed * 1.5); 
         }
     }
 }
