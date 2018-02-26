@@ -95,7 +95,7 @@ function computerTurn() {
 
     // check if game finished
     if(seqLen > skillLevel[environmentVar.skill] - 1) {
-        console.log('you win');
+        display('win');
         return;
     }
 
@@ -161,19 +161,19 @@ function playButton(key) {
     
     // Check played key vs computer sequence
     if (environmentVar.gameStart && playerTurn) {
-        if(computerSequence[playerSequence] === key) {
-            if(playerSequence === computerSequence.length - 1) {
+        if(computerSequence[playerSequence] === key) {                      // entered button is correct
+            if(playerSequence === computerSequence.length - 1) {            // pressed button is last of sequence
                 playerSequence = 0;
                 playerTurn = !playerTurn;
                 setTimeout(() => {
                     computerTurn();
                 }, speed * 2); 
             } else {
-                console.log("Sequence is correct!!!!");
                 playerSequence++;
             }
         } else {
-            console.log("Sequence is wrong!!!!");
+            // display error
+            display("!!",5);
             playerTurn = !playerTurn;
             playerSequence = 0;
             setTimeout(() => {
@@ -191,6 +191,22 @@ function activateButton (key) {
 
 
 // Display the value in the screen area
-function display(val) {
+function display(val, repeat = null) {
+    const dispCurrVal = screenContent.textContent;
     screenContent.textContent = val;
+
+    if(repeat) {
+        if(repeat % 2 !== 0) { repeat++; }  // if repeat is odd, change value to next even nbr
+        let times = 0;
+        var blink = setInterval(()=> {
+            if(times < repeat) {
+                screenContent.style.display = (screenContent.style.display === 'none' ? '' : 'none');
+                times++;
+            } else {
+                screenContent.textContent = dispCurrVal;
+                clearInterval(blink);
+            }
+        }, 200);
+    }
+
 }
