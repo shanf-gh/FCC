@@ -5,6 +5,7 @@ const buttonToggle = Array.from(document.getElementsByClassName('slide__toggle')
 const screenContent = document.querySelector(".js-screen-content");
 var environmentVar = {
     gameStart: false,
+    strict: false,
 };
 
 buttonToggle.forEach(toggle => { 
@@ -33,7 +34,15 @@ function toggleButton() {
     // update variable's value
     environmentVar[btnName] = newVal;
 
-    if (btnName === 'power') screenContent.classList.toggle("active");
+    if (btnName === 'power' && environmentVar.gameStart) {
+        environmentVar.gameStart = !environmentVar.gameStart;
+        playerSequence = 0;         // reset player's sequence
+        speed = 1000;               // reset speed
+        computerSequence = [];      // reset the computer sequence
+        display('--');              // reset the display
+        screenContent.classList.toggle("active");
+        playerTurn = !playerTurn;
+    }
 }
 
 buttonToggle.forEach(toggle => toggle.addEventListener('click', toggleButton));
@@ -45,14 +54,21 @@ function startGame() {
     if(environmentVar.gameStart) {
         computerTurn();
     } else {
-        console.log("turned off");
-        computerSequence = [];      // reset the computer sequence
+        reinitVar();
+        display('--');              // reset the display
         playerTurn = !playerTurn;
     }
 }
 
+function reinitVar() {
+    playerSequence = 0;         // reset player's sequence
+    speed = 1000;               // reset speed
+    computerSequence = [];      // reset the computer sequence
+}
+
 document.getElementsByClassName("js-start")[0].addEventListener('click', startGame);
 document.getElementsByClassName("js-last")[0].addEventListener('click', replaySequence);
+document.getElementsByClassName("js-strict")[0].addEventListener('click', () => {environmentVar.strict = !environmentVar.strict});
 
 
 // ========================
@@ -95,7 +111,7 @@ function computerTurn() {
 
     // check if game finished
     if(seqLen > skillLevel[environmentVar.skill] - 1) {
-        display('win');
+        display('WIN');
         return;
     }
 
@@ -115,15 +131,14 @@ function computerTurn() {
     }
 
     // replay sequence and play newKey
-    // OPTIMIZATION OPPORTUNITY
-    // call replaySequence then play newKey
+    display(('0' + (computerSequence.length + 1)).slice(-2));
     for (let i = 0; i <= seqLen; i++) {
         (function(val) {
+            if (!environmentVar.gameStart) return;
             setTimeout(() => {
                 if (i === seqLen) {
-                    playButton(newKey)
+                    playButton(newKey);
                     computerSequence.push(newKey);
-                    display(('0' + computerSequence.length).slice(-2));
                     playerTurn = !playerTurn;
                 } else {
                     playButton(val);
@@ -139,6 +154,7 @@ function getKey(arr, max) {
 }
 
 function replaySequence() {
+    playerTurn = !playerTurn;
     for (let i = 0; i <= computerSequence.length; i++) {
         (function(val) {
             setTimeout(() => {
@@ -163,7 +179,10 @@ function playButton(key) {
     if (environmentVar.gameStart && playerTurn) {
         if(computerSequence[playerSequence] === key) {                      // entered button is correct
             if(playerSequence === computerSequence.length - 1) {            // pressed button is last of sequence
-                playerSequence = 0;
+                if (computerSequence.length > longestSequence.length) {
+                    longestSequence = computerSequence.slice();
+                }
+                playerSequence = 0;                                         // resets playerSequence
                 playerTurn = !playerTurn;
                 setTimeout(() => {
                     computerTurn();
@@ -173,12 +192,19 @@ function playButton(key) {
             }
         } else {
             // display error
-            display("!!",5);
-            playerTurn = !playerTurn;
+            display("! !",5);
             playerSequence = 0;
-            setTimeout(() => {
-                replaySequence();
-            }, speed * 1.5); 
+            if (environmentVar.strict) {
+                playerTurn = !playerTurn;
+                reinitVar();
+                setTimeout(() => {
+                    computerTurn();
+                }, 1500);
+            } else {
+                setTimeout(() => {
+                    replaySequence();
+                }, speed * 1.5); 
+            }
         }
     }
 }
