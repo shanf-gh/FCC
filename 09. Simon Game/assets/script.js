@@ -34,13 +34,13 @@ function toggleButton() {
     // update variable's value
     environmentVar[btnName] = newVal;
 
+    screenContent.classList.toggle("active");
     if (btnName === 'power' && environmentVar.gameStart) {
         environmentVar.gameStart = !environmentVar.gameStart;
         playerSequence = 0;         // reset player's sequence
         speed = 1000;               // reset speed
         computerSequence = [];      // reset the computer sequence
         display('--');              // reset the display
-        screenContent.classList.toggle("active");
         playerTurn = !playerTurn;
     }
 }
