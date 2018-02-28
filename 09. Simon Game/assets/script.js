@@ -66,9 +66,14 @@ function reinitVar() {
     computerSequence = [];      // reset the computer sequence
 }
 
+function strictMode() {
+    environmentVar.strict = !environmentVar.strict;
+    this.classList.toggle('active');
+}
+
 document.getElementsByClassName("js-start")[0].addEventListener('click', startGame);
 document.getElementsByClassName("js-last")[0].addEventListener('click', replaySequence);
-document.getElementsByClassName("js-strict")[0].addEventListener('click', () => {environmentVar.strict = !environmentVar.strict});
+document.getElementsByClassName("js-strict")[0].addEventListener('click', strictMode);
 
 
 // ========================

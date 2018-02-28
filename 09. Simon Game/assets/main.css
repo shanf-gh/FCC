@@ -192,6 +192,23 @@ body {
     border-radius: 50%;
 }
 
+.js-strict::after {
+    content: '';
+    height: 20%;
+    width: 20%;
+    top: 40%;
+    left: -40%;
+    /* top: 40%;
+    left: -20%; */
+    position: absolute;
+    background-color: #750100;
+    border-radius: 50%;
+}
+
+.js-strict.active::after  {
+    background-color: #FF0000;
+}
+
 .button.start::before {
     background-color: red;
 }
