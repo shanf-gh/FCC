@@ -21,22 +21,50 @@
 // });
 
 // Exercise 5
-var fs = require('fs');
-var path = require('path');
+// var fs = require('fs');
+// var path = require('path');
 
-var folder = process.argv[2];
-var ext = '.' + process.argv[3];
+// var folder = process.argv[2];
+// var ext = '.' + process.argv[3];
 
-fs.readdir(folder, function(err, files) {
-    if(err) console.log(err);
+// fs.readdir(folder, function(err, files) {
+//     if(err) console.log(err);
     
-    files.forEach((file) => {
-        // if(name.includes(ext)) {
-        //     console.log(name);
-        // }
+//     files.forEach((file) => {
+//         // if(name.includes(ext)) {
+//         //     console.log(name);
+//         // }
 
-        if(path.extname(file) === ext) {
-            console.log(file);    
-        }
-    });
-});
+//         if(path.extname(file) === ext) {
+//             console.log(file);    
+//         }
+//     });
+// });
+
+
+// Exercise 6 - Module
+// var mymodule = require('./mymodule.js');
+// var dir = process.argv[2];
+// var ext = process.argv[3];
+
+// function callback(err, files) {
+//     if (err) throw new Error(err);
+    
+//     files.forEach(element => {
+//         console.log(element);
+//     });
+// }
+
+// mymodule(dir, ext, callback);
+
+// Exercise 7 - HTTP Client
+var http = require('http');
+var url = process.argv[2];
+
+function callback(response) {
+    response.setEncoding("utf8");
+    response.on("data", console.log);
+    response.on("error", console.error);
+}
+
+http.get(url, callback).on("error", console.error);
