@@ -58,12 +58,34 @@
 // mymodule(dir, ext, callback);
 
 // Exercise 7 - HTTP Client
+// var http = require('http');
+// var url = process.argv[2];
+
+// function callback(response) {
+//     response.setEncoding("utf8");
+//     response.on("data", console.log);
+//     response.on("error", console.error);
+// }
+
+// http.get(url, callback).on("error", console.error);
+
+// Exercise 8 - HTTP COLLECT
+
 var http = require('http');
 var url = process.argv[2];
 
 function callback(response) {
+var string = []; 
+var count = 0;
     response.setEncoding("utf8");
-    response.on("data", console.log);
+
+    response.on("data", (word) => {
+        count += word.length;
+        string.push(word);
+    }).on("end", () => {
+        console.log(count);
+        console.log(string.join(''));
+    });
     response.on("error", console.error);
 }
 
