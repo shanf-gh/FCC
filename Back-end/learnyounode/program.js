@@ -71,22 +71,54 @@
 
 // Exercise 8 - HTTP COLLECT
 
+// var http = require('http');
+// var url = process.argv[2];
+
+// function callback(response) {
+// var string = []; 
+// var count = 0;
+//     response.setEncoding("utf8");
+
+//     response.on("data", (word) => {
+//         count += word.length;
+//         string.push(word);
+//     }).on("end", () => {
+//         console.log(count);
+//         console.log(string.join(''));
+//     });
+//     response.on("error", console.error);
+// }
+
+// http.get(url, callback).on("error", console.error);
+
+// Exercise 9 - JUGGLING ASYNC
+
 var http = require('http');
-var url = process.argv[2];
+var urls = process.argv.slice(2);
+
+var responses = {}; 
+var count = 0;
+var len = urls.length;
 
 function callback(response) {
-var string = []; 
-var count = 0;
+    let string = []
     response.setEncoding("utf8");
 
-    response.on("data", (word) => {
-        count += word.length;
-        string.push(word);
-    }).on("end", () => {
-        console.log(count);
-        console.log(string.join(''));
-    });
+    response
+        .on("data", (word) => {
+            string.push(word);
+        })
+        .on("end", () => {
+            count++;
+            responses[count] = string.join("");
+
+            if(count === len) {
+                for(string in responses) {
+                    console.log(responses[string]);
+                }
+            }
+        });
     response.on("error", console.error);
 }
 
-http.get(url, callback).on("error", console.error);
+urls.forEach(url => http.get(url, callback).on("error", console.error));
