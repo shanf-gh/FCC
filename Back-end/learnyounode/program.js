@@ -93,32 +93,51 @@
 
 // Exercise 9 - JUGGLING ASYNC
 
-var http = require('http');
-var urls = process.argv.slice(2);
+// var http = require('http');
+// var urls = process.argv.slice(2);
 
-var responses = {}; 
-var count = 0;
-var len = urls.length;
+// var responses = {}; 
+// var count = 0;
+// var len = urls.length;
 
-function callback(response) {
-    let string = []
-    response.setEncoding("utf8");
+// function callback(response) {
+//     let string = []
+//     response.setEncoding("utf8");
 
-    response
-        .on("data", (word) => {
-            string.push(word);
-        })
-        .on("end", () => {
-            count++;
-            responses[count] = string.join("");
+//     response
+//         .on("data", (word) => {
+//             string.push(word);
+//         })
+//         .on("end", () => {
+//             count++;
+//             responses[count] = string.join("");
 
-            if(count === len) {
-                for(string in responses) {
-                    console.log(responses[string]);
-                }
-            }
-        });
-    response.on("error", console.error);
-}
+//             if(count === len) {
+//                 for(string in responses) {
+//                     console.log(responses[string]);
+//                 }
+//             }
+//         });
+//     response.on("error", console.error);
+// }
 
-urls.forEach(url => http.get(url, callback).on("error", console.error));
+// urls.forEach(url => http.get(url, callback).on("error", console.error));
+
+// Exercise 10 - TIME SERVER
+
+var net = require('net');
+const port = process.argv[2];
+var server = net.createServer(function(socket) {
+    // socket handling logic
+    const date = new Date();
+    const y = date.getFullYear();
+    const m = ('0' + (date.getMonth() + 1)).slice(-2) ;
+    const d = ('0' + date.getDate()).slice(-2);
+    const h = ('0' + date.getHours()).slice(-2);
+    const min = ('0' + date.getMinutes()).slice(-2);
+    
+    const now = y + "-" + m  + "-" + d + " " + h + ":" + min; 
+    socket.end(now + "\n");
+});
+
+server.listen(port);
