@@ -125,19 +125,32 @@
 
 // Exercise 10 - TIME SERVER
 
-var net = require('net');
-const port = process.argv[2];
-var server = net.createServer(function(socket) {
-    // socket handling logic
-    const date = new Date();
-    const y = date.getFullYear();
-    const m = ('0' + (date.getMonth() + 1)).slice(-2) ;
-    const d = ('0' + date.getDate()).slice(-2);
-    const h = ('0' + date.getHours()).slice(-2);
-    const min = ('0' + date.getMinutes()).slice(-2);
+// var net = require('net');
+// const port = process.argv[2];
+// var server = net.createServer(function(socket) {
+//     // socket handling logic
+//     const date = new Date();
+//     const y = date.getFullYear();
+//     const m = ('0' + (date.getMonth() + 1)).slice(-2) ;
+//     const d = ('0' + date.getDate()).slice(-2);
+//     const h = ('0' + date.getHours()).slice(-2);
+//     const min = ('0' + date.getMinutes()).slice(-2);
     
-    const now = y + "-" + m  + "-" + d + " " + h + ":" + min; 
-    socket.end(now + "\n");
+//     const now = y + "-" + m  + "-" + d + " " + h + ":" + min; 
+//     socket.end(now + "\n");
+// });
+
+// server.listen(port);
+
+// Exercise 11 - HTTP FILE SERVER
+var http = require("http");
+var fs = require('fs');
+const port = process.argv[2];
+const file = process.argv[3];
+
+var server = http.createServer(function(req, res) {
+    // res.writeHead(200, { "content-type" : "text/plain" }); // Not necessary here
+    fs.createReadStream(file).pipe(res);
 });
 
 server.listen(port);
