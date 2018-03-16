@@ -143,14 +143,66 @@
 // server.listen(port);
 
 // Exercise 11 - HTTP FILE SERVER
-var http = require("http");
-var fs = require('fs');
-const port = process.argv[2];
-const file = process.argv[3];
+// var http = require("http");
+// var fs = require('fs');
+// const port = process.argv[2];
+// const file = process.argv[3];
 
-var server = http.createServer(function(req, res) {
-    // res.writeHead(200, { "content-type" : "text/plain" }); // Not necessary here
-    fs.createReadStream(file).pipe(res);
+// var server = http.createServer(function(req, res) {
+//     // res.writeHead(200, { "content-type" : "text/plain" }); // Not necessary here
+//     fs.createReadStream(file).pipe(res);
+// });
+
+// server.listen(port);
+
+// Exercise 12 - HTTP UPPERCASERER
+// var http = require('http');
+// var map = require('through2-map');
+// var port = process.argv[2];
+
+// var server = http.createServer((req, res) => {
+//     if(req.method !== "POST") { 
+//         return "Post request please";    
+//     }
+
+//     req.pipe(map(function(data) {
+//         return data.toString().toUpperCase();
+//     })).pipe(res);
+// });
+
+// server.listen(port);
+
+// Exercise 13 - HTTP JSON API SERVER
+
+var http = require('http');
+var url = require('url');
+var port = Number(process.argv[2]); // Make sure the port is a number
+
+var server = http.createServer((req, res) => {
+    if(req.method !== "GET") return console.error("GET REQUEST PLEASE!");
+    const myURL = url.parse(req.url, true);
+    const qry = myURL.query;
+    let dateObj;
+    const date = new Date(qry.iso);
+
+    if (myURL.pathname === '/api/unixtime') {
+        dateObj = { unixtime: date.getTime() };
+    } else {
+        dateObj = {
+            hour: date.getHours(),
+            minute: date.getMinutes(),
+            second: date.getSeconds()  
+        };
+    }
+
+    if (dateObj) {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(dateObj));
+    } else {
+        res.writeHead(404);
+        res.end();
+    }
 });
 
 server.listen(port);
+
