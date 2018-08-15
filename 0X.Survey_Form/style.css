@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+}
+
+.container {
+    margin: auto;
+    background-color: #bada55;
+    width: 80%;
+    min-width: 150px;
+}

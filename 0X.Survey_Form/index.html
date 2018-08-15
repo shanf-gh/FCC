@@ -5,45 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Survey - The Good Place</title>
 </head>
 <body>
-    <h1 id="title"></h1>
-
-    <p id="description">
-    </p>
-    
-    <form action="" id="survey-form">
-        <label for="name" id="name-label">
-        Your name
-        </label>
-        <input type="text" name="name" id="name" placeholder="What's your name?">
+    <h1 id="title">The Good Place</h1>
+    <div class="container">
+        <p id="description">
+            Let us know about your experience with The Good Place.
+        </p>
+            
+        <form action="" id="survey-form">
+            <label for="name" id="name-label">
+                * Your name
+            </label>
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            
+            <label for="email" id="email-label">
+                * email
+            </label>  
+        <!--  check validation email  -->
+            <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                placeholder="What's your email?" 
+                pattern=".+@.+\..+"
+                title="Your email must be in the format foo@bar.com (or net, ...)">
+            
+            <label for="number"  id="number-label">
+                * Age
+            </label>
+        <!--  check HTML validation number  -->
+            <input type="number" id="number" placeholder="Age" min="1" max="125">
+            
+        <!--  dropdown  [#dropdown]-->
+            
+        <!-- radio -->
+            
+        <!--   checkboxes -->
+            
+        <!--   textarea for additional comments -->
         
-        <label for="email" id="email-label">
-        Your email
-        </label>  
-    <!--  check validation email  -->
-        <input type="email" name="email" id="email" placeholder="What's your email?">
-        
-        <label for="number"  id="number-label">
-        Number input
-        </label>
-    <!--  check HTML validation number  -->
-    <!--  Min Max attributes to set range of number input  -->
-        <input type="text" id="number" placeholder="Write a number!">
-        
-    <!--  dropdown  [#dropdown]-->
-        
-    <!-- radio -->
-        
-    <!--   checkboxes -->
-        
-    <!--   textarea for additional comments -->
-    
-    <!-- submit button [#submit] -->
-        
-        
-    </form>
+        <!-- submit button [#submit] -->
+            
+            
+        </form>
+    </div>
     
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <!-- 
