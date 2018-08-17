@@ -1,10 +1,14 @@
 body {
     text-align: center;
+    background-color: #f5b822;
+    color: #316796;
 }
 
 .container {
-    margin: auto;
-    background-color: #bada55;
-    width: 80%;
+    width: 70%;
     min-width: 150px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
 }
