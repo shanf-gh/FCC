@@ -14,18 +14,83 @@ body {
 }
 
 .row {
-    background-color: red;
     display:flex;
 }
 
 .labels {
-    width: 50%;
+    width: 46%;
     text-align: right;
-    background-color: yellow;
     padding: 5px;
+    margin-top: 10px;
 }
 
 .rightTab {
     width: 50%;
     text-align: left;
+    margin-left: 10px
+}
+
+.input-field {
+    height: 20px;
+    width: 200px;
+    margin: 10px;
+    margin-left: 0;
+    padding: 5px;
+    border: 1px solid #316796;
+    border-radius: 2px;
+}
+
+.checkboxes, .radios {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#dropdown {
+    height: 30px;
+    width: 180px;
+    padding: 5px;
+    margin: 10px;
+    margin-left: 0;
+    border: 1px solid #316796;
+    border-radius: 2px;
+}
+
+#submit {
+    width: 100px;
+    height: 30px;
+    background-color: #f5b822;
+    color: #316796;
+    border: none;
+    border-radius: 5px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+#comments {
+    height: 100px;
+    resize: vertical;
+}
+
+
+@media screen and (max-width: 520px) {
+    .row {
+        flex-direction: column;
+    }
+    .labels {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+    .rightTab {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .checkboxes, .radios {
+        margin-left: 50px;
+    }    
 }

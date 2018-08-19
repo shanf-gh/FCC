@@ -21,19 +21,20 @@
                     <label for="name" id="name-label">* Your name</label>
                 </div>
                 <div class="rightTab">
-                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                    <input type="text" name="name" id="name" class="input-field" placeholder="Enter your name" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="labels">
-                    <label for="email" id="email-label">* email?</label>
+                    <label for="email" id="email-label">* Email?</label>
                 </div>
                 <div class="rightTab">
                     <input 
                     type="email" 
                     name="email" 
                     id="email" 
+                    class="input-field"
                     placeholder="What's your email?" 
                     title="Your email must be in the format foo@bar.com (or net, ...)"
                     required>
@@ -42,10 +43,11 @@
                 
             <div class="row">
                 <div class="labels">
-                    <label for="dropdown-label">Gender</label>
+                    <label for="dropdown" id="dropdown-label">Gender</label>
                 </div>
                 <div class="rightTab">
                     <select name="gender" id="dropdown">
+                        <option selected="true" disabled value>Select an option</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="noDisclose">Prefer not to disclose</option>
@@ -58,33 +60,49 @@
                     <label for="number"  id="number-label">* Age</label>
                 </div>
                 <div class="rightTab">
-                    <input type="number" id="number" placeholder="Age" min="1" max="125">
+                    <input type="number" id="number" class="input-field" placeholder="Age" min="1" max="125">
                 </div>
             </div>
         
             <!-- radio -->
             <div class="row">
                 <div class="labels">
-                    <p>Select your favorite character</p>
+                    <p>Select your favorite characters</p>
                 </div>
-                <div class="rightTab">
-                    <input type="checkbox" name="favChar" id="Eleanor" value="Eleanor Shellstrop">
-                    <label for="Eleanor">Eleanor Shellstrop</label>
-                    <input type="checkbox" name="favChar" id="Tahani" value="Tahani Al-Jamil">
-                    <label for="Tahani">Tahani Al-Jamil</label>
-                    <input type="checkbox" name="favChar" id="Shawn" value="Shawn">
-                    <label for="Shawn">Shawn</label>
-                    <input type="checkbox" name="favChar" id="Chidi" value="Chidi Anagonye">
-                    <label for="Chidi">Chidi Anagonye</label>
-                    <input type="checkbox" name="favChar" id="Michael" value="Michael">
-                    <label for="Michael">Michael</label>
-                    <input type="checkbox" name="favChar" id="RealEleanor" value="The Real Eleanor">
-                    <label for="RealEleanor">The Real Eleanor</label>
-                    <input type="checkbox" name="favChar" id="Janet" value="Janet Della-Denunzio">
-                    <label for="Janet">Janet Della-Denunzio</label>
-                    <input type="checkbox" name="favChar" id="Jianyu/Jason" value="Jianyu/Jason Mendoza">
-                    <label for="Jianyu/Jason">Jianyu/Jason Mendoza</label>
-                </div>
+                <div class="rightTab checkboxes">
+                    <div>
+                        <input type="checkbox" name="favChar" id="Eleanor" value="Eleanor Shellstrop">
+                        <label for="Eleanor">Eleanor Shellstrop</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="favChar" id="Tahani" value="Tahani Al-Jamil">
+                        <label for="Tahani">Tahani Al-Jamil</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="favChar" id="Shawn" value="Shawn">
+                        <label for="Shawn">Shawn</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="favChar" id="Chidi" value="Chidi Anagonye">
+                        <label for="Chidi">Chidi Anagonye</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="favChar" id="Michael" value="Michael">
+                        <label for="Michael">Michael</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="favChar" id="RealEleanor" value="The Real Eleanor">
+                        <label for="RealEleanor">The Real Eleanor</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="favChar" id="Janet" value="Janet Della-Denunzio">
+                        <label for="Janet">Janet Della-Denunzio</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="favChar" id="Jianyu/Jason" value="Jianyu/Jason Mendoza">
+                        <label for="Jianyu/Jason">Jianyu/Jason Mendoza</label>
+                    </div>
+                </div> 
             </div>
         
         <!--   checkboxes -->
@@ -92,22 +110,28 @@
             <div class="labels">
                 <label for="yourplace">If you died, which place would you go?</label>
             </div>
-            <div class="rightTab">
-                <input type="radio" name="yourplace" id="good" value="The Good Place">
-                <label for="good">The Good Place</label>
-                <input type="radio" name="yourplace" id="medium" value="The Medium Place">
-                <label for="medium">The Medium Place</label>
-                <input type="radio" name="yourplace" id="bad" value="The Bad Place">
-                <label for="bad">The Bad Place</label>
+            <div class="rightTab radios">
+                <div>
+                    <input type="radio" name="yourplace" id="good" value="The Good Place">
+                    <label for="good">The Good Place</label>
+                </div> 
+                <div>
+                    <input type="radio" name="yourplace" id="medium" value="The Medium Place">
+                    <label for="medium">The Medium Place</label>
+                </div> 
+                <div>
+                    <input type="radio" name="yourplace" id="bad" value="The Bad Place">
+                    <label for="bad">The Bad Place</label>
+                </div> 
             </div>
         </div>
         <!--   textarea for additional comments -->
         <div class="row">
             <div class="labels">
-                <label for="comments">Any suggestion or comments?</label>
+                <label for="comments">Any suggestions or comments?</label>
             </div>
             <div class="rightTab">
-                <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+                <textarea name="comments" id="comments" class="input-field" placeholder="Enter your comment here..."></textarea>
             </div>
         </div>
         
