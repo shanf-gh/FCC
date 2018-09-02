@@ -1,6 +1,8 @@
+/* GENERAL DISPLAY */
 body {
     margin: 0;
     width: 100%;
+    font-family: 'Merienda One', cursive;
 }
 
 header {
@@ -16,32 +18,26 @@ header {
 .container {
     min-width: 960px;
     width: 80%;
-    margin: auto;
+    margin: 10px auto;
 }
 
+/* NAVIGATION */
 #nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+.logo {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Molle', cursive;
 }
-
-video {
-    width: 100%;
-}
-
-/* logo */
 
 .fa-cookie-bite {
     color:  #B25D00;
-    padding: 6px 5px;
+    padding: 6px 0 6px 5px;
 }
 .fa-cookie-bite::after {
     content: "";
@@ -53,4 +49,39 @@ video {
     position: relative;
     right: 38px;
     z-index: -1;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 15px;
+    padding: 0 4px;
+}
+
+.menu li:last-of-type {
+    margin-right: 0px;
+}
+
+.menu li:hover {
+    transform: scale(1.1);
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgba(0,0,0,0.7);
+}
+.menu a:hover {
+    color: rgba(0,0,0,0.4);
+}
+
+/* HERO SECTION */
+
+video {
+    width: 100%;
 }
