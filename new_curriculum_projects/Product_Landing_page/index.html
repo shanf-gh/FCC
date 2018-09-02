@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
     <title>The CookieDough Company</title>
 </head>
 <body>
     <!-- User Story #1 header element with id="header" -->
     <header id="header">
-        <!-- User Story #2 image in header element with id="header-img". Good for company logo -->
-        <img src="" alt="" id="header-img">
-        <!-- User Story #3 nav element in header element with id="nav-bar" -->
-        <!-- User Story #13 navbar always on top of the page -->
-        <nav id="nav-bar">
-            <!-- User Story #4 At least 3 clickable elements in nav-bar and with class="nav-link" -->
-            <ul>
-                <!-- User Story #5 Clicking on a link goes to the corresponding location on the page -->
-                <li class="nav-link" class=""><a href=""></a></li>
-                <li class="nav-link" class=""><a href=""></a></li>
-                <li class="nav-link" class=""><a href=""></a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <!-- User Story #3 nav element in header element with id="nav-bar" -->
+            <!-- User Story #13 navbar always on top of the page -->
+            <nav id="nav-bar">       
+                <!-- User Story #2 image in header element with id="header-img". Good for company logo -->
+                <!-- <img src="" alt="" id="header-img"> -->     
+                <div class="logo">
+                    <i class="fas fa-cookie-bite fa-3x"></i>
+                </div>
+                <!-- User Story #4 At least 3 clickable elements in nav-bar and with class="nav-link" -->
+                <ul>
+                    <!-- User Story #5 Clicking on a link goes to the corresponding location on the page -->
+                    <li class="nav-link" class=""><a href="">Home</a></li>
+                    <li class="nav-link" class=""><a href="">Our products</a></li>
+                    <li class="nav-link" class=""><a href="">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- User Story #6 Embedded video -->
     <!-- Video from https://videos.pexels.com/videos/backing-cookies-852375 -->
-    <div>
-        <video id="video" autoplay loop>
-            <source src="./assets/videos/Baking Cookies.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div id="main">
+        <div class="hero">
+            <!-- <p>
+                A Donut a day
+                <br>
+                keeps the doctor away.
+            </p> -->
+            <video id="video" autoplay loop>
+                <source src="./assets/videos/Baking Cookies.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="products">
+            
+        </div>
+
+        <div class="contact">
+
+        </div>
     </div>
 
     <div>
@@ -53,7 +74,8 @@
 
     <!-- User Story #14 At least one media query -->
     <!-- User Story #15 Use CSS Flexbox at least once -->
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <!-- fCC Test suite -->
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
     <!-- 
 
     Hello Camper!

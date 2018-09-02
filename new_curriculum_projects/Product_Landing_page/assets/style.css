@@ -4,12 +4,53 @@ body {
 }
 
 header {
-    height: 100px;
     width: 100%;
-    background-color: red;
     position: fixed;
+    background-color: #F2F2F2;
+}
+
+#main {
+    padding-top: 60px;
+}
+
+.container {
+    min-width: 960px;
+    width: 80%;
+    margin: auto;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
 }
 
 video {
     width: 100%;
+}
+
+/* logo */
+
+.fa-cookie-bite {
+    color:  #B25D00;
+    padding: 6px 5px;
+}
+.fa-cookie-bite::after {
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 25px;
+    background-color:  #542C00;
+    display: inline-block;
+    position: relative;
+    right: 38px;
+    z-index: -1;
 }
