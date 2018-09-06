@@ -24,6 +24,7 @@ header {
 /* NAVIGATION */
 #nav-bar {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -97,6 +98,24 @@ header {
 
 .presentation-msg {
     font-size: 2em;
+}
+
+/* Product SECTION */
+
+.products__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around; 
+}
+
+.products__item {
+    border: 1px solid #bada55;
+    width: 150px;
+    border-radius: 5px;
+    padding: 10px;
+    /* need some vertical space when items break to next time
+        maybe smthg in flex can help?
+    */
 }
 
 video {
