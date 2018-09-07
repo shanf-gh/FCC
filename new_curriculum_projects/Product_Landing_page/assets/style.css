@@ -93,14 +93,26 @@ header {
 
 .presentation .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column; 
+    text-align: center;
+    width: 50%;
 }
 
-.presentation-msg {
+.presentation-msg--big {
     font-size: 2em;
 }
 
+.presentation-msg--med {
+    font-size: 1.3em;
+
+}
+
 /* Product SECTION */
+.products__title {
+    font-size: 2em;
+    padding: 20px 0;
+    text-align: center;
+}
 
 .products__list {
     display: flex;
