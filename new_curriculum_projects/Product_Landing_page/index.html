@@ -71,8 +71,8 @@
                         <div class="products__img">
                             <img src="./assets/photos/classic.png" alt="" class="products__img">
                         </div>
-                        <hr>
                         <div class="products__description">
+                            <div class="products__name">The Classic</div>
                             This is a dough for a classic cookie! Tried and tested by millions of people!
                         </div>
                     </div>
@@ -80,18 +80,18 @@
                         <div class="products__img">
                             <img src="./assets/photos/coffee.png" alt="" class="products__img">
                         </div>
-                        <hr>
                         <div class="products__description">
-                            This is our product.
+                            <div class="products__name">The Coffee</div>
+                            A special product for our special coffee lovers!
                         </div>
                     </div>
                     <div class="products__item">
                         <div class="products__img">
                             <img src="./assets/photos/double_choc.png" alt="" class="products__img">
                         </div>
-                        <hr>
                         <div class="products__description">
-                            This is our product.
+                            <div class="products__name">The Choc</div>
+                            Choc Choc Choc. Who doesn't love chocolate ?!
                         </div>
                     </div>
                 </div>
@@ -100,11 +100,28 @@
 
         <div class="contact">
             <div class="container">
-                Want to learn more about our products?
-                <form action="#" method="post">
-                    <input type="email" name="email" id="" placeholder="Your e-mail">
-                    <input type="submit" value="submit">
+                <p>
+                    Want to learn more about our products?
+                </p>
+
+                <!-- User Story #7 form element with id="form" -->
+                <form action="" id="form">
+                    <!-- User Story #8 input field with id="email" in form-->
+                    <!-- User Story #9 placeholder to let know the use of the purpose -->
+                    <!-- User Story #10 Use HTML5 validation to  confirm the input is an email address -->
+                    <input type="email" name="email" id="email" placeholder="Enter your email address">
+                    <!-- User Story #11 subtmit input with id="submit" -->
+                    <!-- User Story #12: When I click the #submit element, the email is submitted to a static page 
+                        (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address 
+                        was entered and that it posted successfully. -->
+                    <input type="submit" value="submit" id="submit">
                 </form>
+                <p>
+                    Or follow us on
+                </p>
+                <div class="social">
+
+                </div>
             </div>
         </div>
     </div>
@@ -112,19 +129,6 @@
     <div>
 
     </div>
-
-    <!-- User Story #7 form element with id="form" -->
-    <form action="" id="form">
-        <!-- User Story #8 input field with id="email" in form-->
-        <!-- User Story #9 placeholder to let know the use of the purpose -->
-        <!-- User Story #10 Use HTML5 validation to  confirm the input is an email address -->
-        <input type="email" name="email" id="email" placeholder="Enter your email address">
-        <!-- User Story #11 subtmit input with id="submit" -->
-        <!-- User Story #12: When I click the #submit element, the email is submitted to a static page 
-            (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address 
-            was entered and that it posted successfully. -->
-        <input type="submit" value="submit" id="submit">
-    </form>
 
     <!-- User Story #14 At least one media query -->
     <!-- User Story #15 Use CSS Flexbox at least once -->
