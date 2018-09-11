@@ -10,10 +10,11 @@ header {
     width: 100%;
     position: fixed;
     background-color: #F2F2F2;
+    opacity: 0.8;
 }
 
 #main {
-    padding-top: 60px;
+    padding-top: 80px;
 }
 
 .container {
