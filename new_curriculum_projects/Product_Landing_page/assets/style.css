@@ -156,3 +156,22 @@ video {
 #contact {
     text-align: center;
 }
+
+.social a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.fa-twitter-square:hover {
+    color: #1DA1F2;
+}
+
+.fa-facebook:hover {
+    color: #3B5998;
+}
+
+.fa-instagram:hover {
+    color: #262626;
+}
+
+
