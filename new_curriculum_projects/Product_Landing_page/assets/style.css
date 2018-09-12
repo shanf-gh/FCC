@@ -22,6 +22,16 @@ header {
     margin: 10px auto;
 }
 
+/* GENERAL TYPO */
+
+.msg--big {
+    font-size: 2em;
+}
+
+.msg--med {
+    font-size: 1.3em;
+}
+
 /* NAVIGATION */
 #nav-bar {
     display: flex;
@@ -99,15 +109,6 @@ header {
     width: 50%;
 }
 
-.presentation-msg--big {
-    font-size: 2em;
-}
-
-.presentation-msg--med {
-    font-size: 1.3em;
-
-}
-
 /* Product SECTION */
 .products__title {
     font-size: 2em;
@@ -148,4 +149,10 @@ header {
 
 video {
     width: 100%;
+}
+
+/* Contact SECTION */
+
+#contact {
+    text-align: center;
 }
