@@ -1,3 +1,6 @@
+/* SOURCES */
+/* Hiding hamburger menu with HTML&CSS (NO JS): https://codepen.io/erikterwan/pen/EVzeRP */
+
 /* GENERAL DISPLAY */
 body {
     margin: 0;
@@ -151,10 +154,21 @@ video {
     width: 100%;
 }
 
-/* Contact SECTION */
+/* CONTACT SECTION */
 
 #contact {
     text-align: center;
+}
+
+#contact #email {
+    min-width: 210px;
+}
+#contact #submit {
+    padding: 0;
+}
+
+.social {
+    margin-top: 20px;
 }
 
 .social a {
@@ -175,3 +189,15 @@ video {
 }
 
 /* MEDIA QUERIES */
+
+/* Add hamburger style menu */
+@media (max-width : 768px) {
+    .menu {
+        /* hiding the menu */
+        position: absolute;
+        right: -300px;
+    }
+
+
+}
+
