@@ -13,7 +13,7 @@ header {
     width: 100%;
     position: fixed;
     background-color: #F2F2F2;
-    opacity: 0.8;
+    opacity: 0.95;
 }
 
 #main {
@@ -64,6 +64,10 @@ header {
     position: relative;
     right: 38px;
     z-index: -1;
+}
+
+.menu input {
+    display: none;
 }
 
 .menu ul {
@@ -145,9 +149,15 @@ header {
     margin: 15px 0;
 }
 
+.products__name {
+    border-bottom: 2px solid #020202;
+    margin-bottom: 10px;
+}
+
 .products__description {
     margin-top: 15px;
     padding: 10px;
+    text-align: center;
 }
 
 video {
@@ -191,13 +201,9 @@ video {
 /* MEDIA QUERIES */
 
 /* Add hamburger style menu */
-@media (max-width : 768px) {
+@media screen and (max-width : 768px) {
     #main {
-        padding-top: 200px;
-    }
-
-    #header .container {
-        margin-bottom: 0;
+        padding-top: 110px;
     }
 
     #nav-bar {
@@ -264,7 +270,7 @@ video {
         
         position: absolute;
         left: 25%;
-        top: -5%;
+        top: -40%;
 
         cursor: pointer;
 
@@ -273,6 +279,10 @@ video {
 
         -webkit-touch-callout: none;
     }   
+
+    .menu input:checked {
+        top: -10%;
+    }
     
     /* 
     * Transform all the slices of hamburger
@@ -304,6 +314,7 @@ video {
         position: relative;
         opacity: 1;
         transform: none;
+        margin-bottom: 10px;
     }
 
 }
