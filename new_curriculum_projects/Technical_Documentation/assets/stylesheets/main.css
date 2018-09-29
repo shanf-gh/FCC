@@ -1,0 +1,41 @@
+:root {
+    --php-bg-color: #8892BF;
+    --php-border-color: #4F5B93;
+}
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+}
+
+#nav-bar {
+    border-right: 2px solid var(--php-border-color);
+    padding: 0 15px;
+    position: fixed; 
+    height: 100%;
+}
+
+#nav-bar ul {
+    padding-left: 15px;
+    list-style: none;
+}
+
+.nav-link {
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+#main-doc {
+    margin-left: 250px;
+    padding: 0 20px 0 15px;
+}
+
+.list-items {
+    list-style-type: circle;
+}
