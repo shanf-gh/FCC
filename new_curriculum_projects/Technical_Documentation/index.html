@@ -9,13 +9,15 @@
     <!-- User Story #14: On regular sized devices (laptops, desktops), the element with id="navbar" should be shown on the left side of the screen and should always be visible to the user. -->
     <!-- User Story #15: My Technical Documentation page should use at least one media query. -->
     <link rel="stylesheet" href="assets/stylesheets/main.css">
-</head>
+    </head>
 <body>
     <!-- User Story #8: I can see a nav element with a corresponding id="navbar". -->
     <!-- User Story #11: The header element in the navbar must come before any link (a) elements in the navbar. -->
-    <nav id="nav-bar">
+    <nav id="navbar">
         <!-- User Story #9: The navbar element should contain one header element which contains text that describes the topic of the technical documentation. -->
-        <h1>PHP Documentation</h1>
+        <header>
+            <h1>PHP Documentation</h1>
+        </header>
         <!-- User Story #10: Additionally, the navbar should contain link (a) elements with the class of nav-link. There should be one for every element with the class main-section. -->
         <!-- User Story #12: Each element with the class of nav-link should contain text that corresponds to the header text within each section (e.g. if you have a "Hello world" section/header, your navbar should have an element which contains the text "Hello world"). -->
         <!-- User Story #13: When I click on a navbar element, the page should navigate to the corresponding section of the main-doc element (e.g. If I click on a nav-link element that contains the text "Hello world", the page navigates to a section element that has that id and contains the corresponding header. -->      
@@ -24,30 +26,32 @@
                 <a href="#introduction" class="nav-link">introduction</a>
             </li>
             <li>
-                <a href="#" class="nav-link"></a>
+                <a href="#installation_and_configuration" class="nav-link">installation and configuration</a>
             </li>
             <li>
-                <a href="#" class="nav-link"></a>
+                <a href="#basic_syntax" class="nav-link">Basic syntax</a>
             </li>
             <li>
-                <a href="#" class="nav-link"></a>
+                <a href="#types" class="nav-link">Types</a>
             </li>
             <li>
-                <a href="#" class="nav-link"></a>
+                <a href="#reference" class="nav-link">reference</a>
             </li>
         </ul>
     </nav>
 
     <!-- User Story #1: I can see a main element with a corresponding id="main-doc", which contains the page's main content (technical documentation). -->
     <!-- User Story #2: Within the #main-doc element, I can see several section elements, each with a class of main-section. There should be a minimum of 5. -->
-    <div id="main-doc">
+    <main id="main-doc">
         <!-- User Story #3: The first element within each .main-section should be a header element which contains text that describes the topic of that section. -->
         <!-- User Story #4: Each section element with the class of main-section should also have an id that corresponds with the text of each header contained within it. Any spaces should be replaced with underscores (e.g. The section that contains the header "Javascript and Java" should have a corresponding id="Javascript_and_Java"). -->
         <!-- User Story #5: The .main-section elements should contain at least 10 p elements total (not each). -->
         <!-- User Story #6: The .main-section elements should contain at least 5 code elements total (not each). -->
         <!-- User Story #7: The .main-section elements should contain at least 5 li items total (not each). -->
-        <div class="main-section" id="introduction">
-            <h2>Introduction</h2>
+        <section class="main-section" id="introduction">
+            <header>
+                <h2>Introduction</h2>
+            </header>
             <h3>What is PHP?</h3>
             <p>
                 PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML.
@@ -60,32 +64,21 @@
                     <p>Example #1 An introductory example</p>
                 </div>
                 <div class="example-contents">
-                    <div class="phpcode">
-                        <code>
-                            <span style="color: #000000">&lt;!DOCTYPE&nbsp;HTML&gt;
-                                <br>&lt;html&gt;
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Example&lt;/title&gt;
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;
-                                <br>
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span style="color: #0000BB">&lt;?php
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </span>
-                            <span style="color: #007700">echo&nbsp;</span>
-                            <span style="color: #DD0000">"Hi,&nbsp;I'm&nbsp;a&nbsp;PHP&nbsp;script!"</span>
-                            <span style="color: #007700">;
-                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </span>
-                            <span style="color: #0000BB">?&gt;
-                            <br>
-                            </span>
-                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;
-                            <br>&lt;/html&gt;
-                            </span>
-                        </code>
-                    </div>
+                    <code>
+                        &lt;!DOCTYPE HTML&gt;<br>
+                        &lt;html&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Example&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Hi, I'm a PHP script!";<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;<br>
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;<br>
+                    </code>
                 </div>
             </div>
             <p>
@@ -152,20 +145,259 @@
             <p>
                 As you can see this page is not enough to list all the features and benefits PHP can offer. Read on in the sections about installing PHP, and see the function reference part for explanation of the extensions mentioned here.
             </p>
-        </div>
-        <div class="main-section" id="section_name">
-            <h2>Topic of section</h2>
-        </div>
-        <div class="main-section" id="section_name">
-            <h2>Topic of section</h2>
-        </div>
-        <div class="main-section" id="section_name">
-            <h2>Topic of section</h2>
-        </div>
-        <div class="main-section" id="section_name">
-            <h2>Topic of section</h2>
-        </div>
+        </section>
+        <section class="main-section" id="installation_and_configuration">
+            <header>
+                <h2>Installation And Configuration</h2>
+            </header>
+            <p>
+                Since there are several considerations based on your use case and environment, please refer to the <a href="http://php.net/manual/en/install.php">PHP documentation</a> page.
+            </p>
+        </section>
+        <section class="main-section" id="basic_syntax">
+            <header>
+                <h2>Basic syntax</h2>
+            </header>
+            <h3>PHP tags</h3>
+            <p>When PHP parses a file, it looks for opening and closing tags, which are <em>&lt;?php</em> and <em>?&gt;</em> which tell PHP to start and stop interpreting the code between them. Parsing in this manner allows PHP to be embedded in all sorts of different documents, as everything outside of a pair of opening and closing tags is ignored by the PHP parser.
 
-    </div>
+            <p>
+                PHP also allows for short open tag <em>&lt;?</em> (which is discouraged since it is only available if enabled using the short_open_tag <span class="filename">php.ini</span> configuration file directive, or if PHP was configured with the <strong>--enable-short-tags</strong> option).
+            </p>
+                
+            <p>
+                If a file is pure PHP code, it is preferable to omit the PHP closing tag at the end of the file. This prevents accidental whitespace or new lines being added after the PHP closing tag, which may cause unwanted effects because PHP will start output buffering when there is no intention from the programmer to send any output at that point in the script.</p>
+            </p>
+            <div class="example">
+                <div class="example-contents">
+                    <code>
+                        &lt;?php <br>
+                        echo "Hello world"; <br>
+                        <br>
+                        // ... more code <br>
+                        <br>
+                        echo "Last statement"; <br>
+                        <br>
+                        // the script ends here with no PHP closing tag <br>
+                    </code>
+                </div>
+            </div>
+            <h3>Escaping from HTML</h3>
+            <p>Everything outside of a pair of opening and closing tags is ignored by the PHP parser which allows PHP files to have mixed content. This allows PHP to be embedded in HTML documents, for example to create templates.</p>
+            <div class="example">
+                <div class="example-contents">
+                    <code>
+                        &lt;p&gt;This is going to be ignored by PHP and displayed by the browser.&lt;/p&gt;<br>
+                        &lt;?php echo 'While this is going to be parsed.'; ?&gt;<br>
+                        &lt;p&gt;This will also be ignored by PHP and displayed by the browser.&lt;/p&gt;<br>
+                    </code>
+                </div>
+            </div>
+            <p>This works as expected, because when the PHP interpreter hits the ?> closing tags, it simply starts outputting whatever it finds (except for an immediately following newline - see instruction separation) until it hits another opening tag unless in the middle of a conditional statement in which case the interpreter will determine the outcome of the conditional before making a decision of what to skip over. See the next example.<br>
+            Using structures with conditions</p>
+            <div class="example">
+                <div class="info">Example #1 Advanced escaping using conditions</div>
+                <div class="example-contents">
+                    <code>
+                        &lt;?php if ($expression == true): ?&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;This will show if the expression is true.<br>
+                        &lt;?php else: ?&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Otherwise this will show.<br>
+                        &lt;?php endif; ?&gt;<br>
+                    </code>
+                </div>
+            </div>
+            <p>In this example PHP will skip the blocks where the condition is not met, even though they are outside of the PHP open/close tags; PHP skips them according to the condition since the PHP interpreter will jump over blocks contained within a condition that is not met.</p>
+            <p>For outputting large blocks of text, dropping out of PHP parsing mode is generally more efficient than sending all of the text through echo or print.</p>
+
+            <p>In PHP 5, there are up to five different pairs of opening and closing tags available in PHP, depending on how PHP is configured. Two of these, <code class="code">&lt;?php ?&gt;</code> and <code class="code">&lt;script language="php"&gt; &lt;/script&gt;</code>, are always available. There is also the short echo tag <code class="code">&lt;?= ?&gt;</code>, which is always available in PHP 5.4.0 and later.</p>
+
+            <p>The other two are short tags and ASP style tags. As such, while some people find short tags and ASP style tags convenient, they are less portable, and generally not recommended.</p>
+            <blockquote class="note">
+                <p><strong class="note">Note:</strong></p>
+                <p>Also note that if you are embedding PHP within XML or XHTML you will need to use the &lt;?php ?&gt; tags to remain compliant with standards.</p>
+            </blockquote>
+            <p>PHP 7 removes support for ASP tags and <code class="code">&lt;script language="php"&gt;</code> tags. As such, we recommend only using &lt;?php ?&gt; and &lt;?= ?&gt; when writing PHP code to maximise compatibility.</p>
+            <div class="example">
+                <div class="info">Example #2 PHP Opening and Closing Tags</div>
+                <div class="example-contents">
+                    <code>
+                        1.&nbsp;&lt;?php echo 'if you want to serve PHP code in XHTML or XML documents,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use these tags'; ?&gt;<br>
+                        <br>
+                        2. &nbsp;You can use the short echo tag to &lt;?= 'print this string' ?&gt;.<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;It's always enabled in PHP 5.4.0 and later, and is equivalent to<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo 'print this string' ?&gt;.<br>
+                        <br>
+                        3.&nbsp;&lt;? echo 'this code is within short tags, but will only work '.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'if short_open_tag is enabled'; ?&gt;<br>
+                        <br>
+                        4.&nbsp;&lt;script language="php"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo 'some editors (like FrontPage) don\'t<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like processing instructions within these tags';<br>
+                        &nbsp;&nbsp;&nbsp;&lt;/script&gt;<br>
+                        &nbsp;&nbsp;&nbsp;This syntax is removed in PHP 7.0.0.<br>
+                        <br>
+                        5.&nbsp;&lt;% echo 'You may optionally use ASP-style tags'; %&gt;<br>
+                        &nbsp;&nbsp;&nbsp;Code within these tags &lt;%= $variable; %&gt; is a shortcut for this code &lt;% echo $variable; %&gt;<br>
+                        &nbsp;&nbsp;&nbsp;Both of these syntaxes are removed in PHP 7.0.0.
+                    </code>
+                </div>
+            </div>
+            <p>Short tags (example three) are only available when they are enabled via the short_open_tag <span class="filename">php.ini</span> configuration file directive, or if PHP was configured with the <strong>--enable-short-tags</strong> option.</p>
+            <p>ASP style tags (example five) are only available when they are enabled via the asp_tags <span class="filename">php.ini</span> configuration file directive, and have been removed in PHP 7.0.0.</p>
+            <blockquote class="note">
+                <p><strong class="note">Note:</strong></p>
+                <p>Using short tags should be avoided when developing applications or libraries that are meant for redistribution, or deployment on PHP servers which are not under your control, because short tags may not be supported on the target server. For portable, redistributable code, be sure not to use short tags.</p>
+            </blockquote>
+            <blockquote class="note">
+                <p><strong class="note">Note:</strong></p>
+                <p>In PHP 5.2 and earlier, the parser does not allow the <em>&lt;?php</em> opening tag to be the only thing in a file. This is allowed as of PHP 5.3 provided there are one or more whitespace characters after the opening tag.</p>
+            </blockquote>
+            <blockquote class="note">
+                <p><strong class="note">Note:</strong></p>
+                <p>Starting with PHP 5.4, short echo tag <em>&lt;?=</em> is always recognized and valid, regardless of the short_open_tag setting.</p>                
+            </blockquote>            
+            <h3>Instruction separation</h3>
+            <p>As in C or Perl, PHP requires instructions to be terminated with a semicolon at the end of each statement. The closing tag of a block of PHP code automatically implies a semicolon; you do not need to have a semicolon terminating the last line of a PHP block. The closing tag for the block will include the immediately trailing newline if one is present.</p>
+            <div class="example">
+                <div class="example-contents">
+                    <code>
+                        &lt;?php<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo 'This is a test';<br>
+                        ?&gt;<br>
+                        <br>
+                        &lt;?php echo 'This is a test' ?&gt;<br>
+                        <br>
+                        &lt;?php echo 'We omitted the last closing tag';<br>
+                    </code>
+                </div>
+            </div>
+            <blockquote class="note">
+                <p><strong class="note">Note:</strong></p>
+                <p>The closing tag of a PHP block at the end of a file is optional, and in some cases omitting it is helpful when using include or require, so unwanted whitespace will not occur at the end of files, and you will still be able to add headers to the response later. It is also handy if you use output buffering, and would not like to see added unwanted whitespace at the end of the parts generated by the included files.</p>
+            </blockquote>
+            <h3>Comments</h3>
+            <p>PHP supports 'C', 'C++' and Unix shell-style (Perl style) comments. For example:</p>
+            <div class="example">
+                <div class="example-contents">
+                    <code>
+                        &lt;?php<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo 'This is a test'; // This is a one-line c++ style comment<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;/* This is a multi line comment<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yet another line of comment */<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo 'This is yet another test';<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo 'One Final Test'; # This is a one-line shell-style comment<br>
+                        ?&gt;
+                    </code>
+                </div>
+            </div>
+            <p>The "one-line" comment styles only comment to the end of the line or the current block of PHP code, whichever comes first. This means that HTML code after // ... ?> or # ... ?> WILL be printed: ?> breaks out of PHP mode and returns to HTML mode, and // or # cannot influence that. If the asp_tags configuration directive is enabled, it behaves the same with // %> and # %>. However, the <code class="code">&lt/script&gt;</code> tag doesn't break out of PHP mode in a one-line comment.</p>
+            <div class="example">
+                <div class="example-contents">
+                    <code>
+                        &lt;h1&gt;This is an &lt;?php # echo 'simple';?&gt; example&lt;/h1&gt;<br>
+                        &lt;p&gt;The header above will say 'This is an  example'.&lt;/p&gt;
+                    </code>
+                </div>
+            </div>
+            <p>'C' style comments end at the first */ encountered. Make sure you don't nest 'C' style comments. It is easy to make this mistake if you are trying to comment out a large block of code.</p>
+            <div class="example">
+                <div class="example-contents">
+                    <code>
+                        &lt;?php<br>
+                        &nbsp;&nbsp;/*<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo 'This is a test'; /* This comment will cause a problem */<br>
+                        &nbsp;&nbsp;*/<br>
+                        ?&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+        
+        <section class="main-section" id="types">
+            <header>
+                <h2>Types</h2>
+            </header>
+            <p>PHP supports ten primitive types.</p>
+            <p>Four scalar types:</p>
+            <ul class="list">
+                <li class="list-items">boolean</li>
+                <li class="list-items">integer</li>
+                <li class="list-items">float (floating-point number, aka double)</li>
+                <li class="list-items">string</li>
+            </ul>
+            <p>Four compound types:</p>
+            <ul class="list">
+                <li class="list-items">array</li>
+                <li class="list-items">object</li>
+                <li class="list-items">callable</li>
+                <li class="list-items">iterable</li>
+            </ul>
+            <p>And finally two special types:</p>
+            <ul class="list">
+                <li class="list-items">resource</li>
+                <li class="list-items">NULL</li>
+            </ul>
+            <p>This manual also introduces some pseudo-types for readability reasons:</p>
+            <ul class="list">
+                <li class="list-items">mixed</li>
+                <li class="list-items">number</li>
+                <li class="list-items">callback (aka callable)</li>
+                <li class="list-items">array|object</li>
+                <li class="list-items">void</li>
+            </ul>
+            <p>And the pseudo-variable <code class="code">$...</code>.</p>
+            <p></p>
+            <p></p>
+            <blockquote class="note">
+                <p>
+                    <strong class="note">Note:</strong> To check the type and value of an expression, use the var_dump() function.<br>
+                    To get a human-readable representation of a type for debugging, use the gettype() function. To check for a certain type, do not use gettype(), but rather the is_type functions. Some examples:
+                </p>
+                <div class="example">
+                    <div class="example-contents">
+                        <code>
+                            &lt;?php<br>
+                            $a_bool = TRUE;   // a boolean<br>
+                            $a_str  = "foo";  // a string<br>
+                            $a_str2 = 'foo';  // a string<br>
+                            $an_int = 12;     // an integer<br>
+                            <br>
+                            echo gettype($a_bool); // prints out:  boolean<br>
+                            echo gettype($a_str);  // prints out:  string<br>
+                            <br>
+                            // If this is an integer, increment it by four<br>
+                            if (is_int($an_int)) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;$an_int += 4;<br>
+                            }<br>
+                            <br>
+                            // If $a_bool is a string, print it out<br>
+                            // (does not print out anything)<br>
+                            if (is_string($a_bool)) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;echo "String: $a_bool";<br>
+                            }<br>
+                            ?&gt;
+                        </code>
+                    </div>
+                </div>
+            </blockquote>
+            <p>To forcibly convert a variable to a certain type, either cast the variable or use the settype() function on it.</p>
+            <p>Note that a variable may be evaluated with different values in certain situations, depending on what type it is at the time. For more information, see the section on Type Juggling. The type comparison tables may also be useful, as they show examples of various type-related comparisons.</p>
+        </section>
+        <section class="main-section" id="reference">
+            <header>
+                <h2>Reference</h2>
+            </header>
+            <p>
+                To learn more about PHP, please have a look at the official documentation (<a href="http://php.net/manual/en/" target="_blank">PHP Manual</a>).
+            </p>
+            <p>
+                All the documentation on this page has been taken from that manual.
+            </p>
+        </section>
+    </main>
 </body>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
+

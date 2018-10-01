@@ -9,19 +9,19 @@ html {
 body {
     height: 100%;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #F2F2F2;
     display: flex;
     flex-direction: row;
 }
 
-#nav-bar {
+#navbar {
     border-right: 2px solid var(--php-border-color);
     padding: 0 15px;
     position: fixed; 
     height: 100%;
 }
 
-#nav-bar ul {
+#navbar ul {
     padding-left: 15px;
     list-style: none;
 }
@@ -32,10 +32,64 @@ body {
 }
 
 #main-doc {
-    margin-left: 250px;
+    margin-left: 280px;
     padding: 0 20px 0 15px;
 }
 
+.main-section:last-of-type {
+    margin-bottom: 20px;
+}
 .list-items {
     list-style-type: circle;
 }
+
+code {
+    background-color: #eee;
+    padding: 20px;
+    display: block;
+    border-left: 2px solid rgba(0,0,0,0.8);
+}
+
+.code {
+    display: inline-block;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+}
+
+.filename {
+    background-color: #e6e6e6;
+    color: black;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+blockquote.note {
+    background-color: #e6e6e6;
+    border-color: #ccc;
+    padding: .75rem;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
+    border-radius: 0 0 2px 2px;
+}
+strong.note {
+    font-size: 1.125rem;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    #navbar {
+        position: static;
+        border-right:none;
+        border-bottom: 2px solid var(--php-border-color);
+        height: auto;
+        text-align: center;
+    }
+    #main-doc {
+        margin-left: 0;
+    }
+} 
