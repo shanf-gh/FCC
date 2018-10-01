@@ -16,19 +16,35 @@ body {
 
 #navbar {
     border-right: 2px solid var(--php-border-color);
-    padding: 0 15px;
     position: fixed; 
     height: 100%;
 }
 
+#navbar header {
+    text-align: center;
+}
+
 #navbar ul {
-    padding-left: 15px;
+    width: 100%;
+}
+#navbar li {    
+    border-bottom-width: 0px;
+    padding: 5px;
+    padding-left: 20px;
     list-style: none;
+    position: relative;
+    left: -50px;
+    width: 100%;
+}
+
+#navbar li:last-of-type {
+    border-bottom-width: 1px;
 }
 
 .nav-link {
     text-transform: capitalize;
     text-decoration: none;
+    color: black;
 }
 
 #main-doc {
@@ -45,7 +61,8 @@ body {
 
 code {
     background-color: #eee;
-    padding: 20px;
+    padding: 10px;
+    margin-top: 10px;
     display: block;
     border-left: 2px solid rgba(0,0,0,0.8);
 }
