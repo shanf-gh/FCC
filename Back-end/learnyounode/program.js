@@ -29,18 +29,17 @@
 
 // fs.readdir(folder, function(err, files) {
 //     if(err) console.log(err);
-    
+
 //     files.forEach((file) => {
 //         // if(name.includes(ext)) {
 //         //     console.log(name);
 //         // }
 
 //         if(path.extname(file) === ext) {
-//             console.log(file);    
+//             console.log(file);
 //         }
 //     });
 // });
-
 
 // Exercise 6 - Module
 // var mymodule = require('./mymodule.js');
@@ -49,7 +48,7 @@
 
 // function callback(err, files) {
 //     if (err) throw new Error(err);
-    
+
 //     files.forEach(element => {
 //         console.log(element);
 //     });
@@ -75,7 +74,7 @@
 // var url = process.argv[2];
 
 // function callback(response) {
-// var string = []; 
+// var string = [];
 // var count = 0;
 //     response.setEncoding("utf8");
 
@@ -96,7 +95,7 @@
 // var http = require('http');
 // var urls = process.argv.slice(2);
 
-// var responses = {}; 
+// var responses = {};
 // var count = 0;
 // var len = urls.length;
 
@@ -135,8 +134,8 @@
 //     const d = ('0' + date.getDate()).slice(-2);
 //     const h = ('0' + date.getHours()).slice(-2);
 //     const min = ('0' + date.getMinutes()).slice(-2);
-    
-//     const now = y + "-" + m  + "-" + d + " " + h + ":" + min; 
+
+//     const now = y + "-" + m  + "-" + d + " " + h + ":" + min;
 //     socket.end(now + "\n");
 // });
 
@@ -161,8 +160,8 @@
 // var port = process.argv[2];
 
 // var server = http.createServer((req, res) => {
-//     if(req.method !== "POST") { 
-//         return "Post request please";    
+//     if(req.method !== "POST") {
+//         return "Post request please";
 //     }
 
 //     req.pipe(map(function(data) {
@@ -174,35 +173,34 @@
 
 // Exercise 13 - HTTP JSON API SERVER
 
-var http = require('http');
-var url = require('url');
+var http = require("http");
+var url = require("url");
 var port = Number(process.argv[2]); // Make sure the port is a number
 
 var server = http.createServer((req, res) => {
-    if(req.method !== "GET") return console.error("GET REQUEST PLEASE!");
-    const myURL = url.parse(req.url, true);
-    const qry = myURL.query;
-    let dateObj;
-    const date = new Date(qry.iso);
+  if (req.method !== "GET") return console.error("GET REQUEST PLEASE!");
+  const myURL = url.parse(req.url, true);
+  const qry = myURL.query;
+  let dateObj;
+  const date = new Date(qry.iso);
 
-    if (myURL.pathname === '/api/unixtime') {
-        dateObj = { unixtime: date.getTime() };
-    } else {
-        dateObj = {
-            hour: date.getHours(),
-            minute: date.getMinutes(),
-            second: date.getSeconds()  
-        };
-    }
+  if (myURL.pathname === "/api/unixtime") {
+    dateObj = { unixtime: date.getTime() };
+  } else {
+    dateObj = {
+      hour: date.getHours(),
+      minute: date.getMinutes(),
+      second: date.getSeconds()
+    };
+  }
 
-    if (dateObj) {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(dateObj));
-    } else {
-        res.writeHead(404);
-        res.end();
-    }
+  if (dateObj) {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(dateObj));
+  } else {
+    res.writeHead(404);
+    res.end();
+  }
 });
 
 server.listen(port);
-
