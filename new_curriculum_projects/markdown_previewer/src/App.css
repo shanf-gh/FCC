@@ -1,16 +1,26 @@
 #markdown-box {
     background-color: red;
-    width: 500px;
+    width: 840px;
     height: 100%;
     margin: auto;
+    text-align: center;
 }
 
-#text-area {
+#textbox {
     height: 80%;
+    display: flex;
+    text-align: left;
 }
 
 textarea, #preview {
     width: 50%;
-    height: 100%;
-    background-color: blue;
+    height: auto;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+textarea{
+    resize: none;
+    overflow: auto;
 }
