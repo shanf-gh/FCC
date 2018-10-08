@@ -1,0 +1,16 @@
+#markdown-box {
+    background-color: red;
+    width: 500px;
+    height: 100%;
+    margin: auto;
+}
+
+#text-area {
+    height: 80%;
+}
+
+textarea, #preview {
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+}
