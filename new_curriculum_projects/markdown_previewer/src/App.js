@@ -26,7 +26,6 @@ class App extends Component {
             rows="1"
           ></textarea>
           <div id="preview">
-            {this.state.text}
           </div>
         </div>
       </div>
