@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import marked from 'marked';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   getMarkdownText() {
-    var rawMarkup = marked(this.state.text, { sanitize: true });
+    var rawMarkup = marked(this.state.text, { sanitize: true, breaks: true });
     return { __html: rawMarkup };
   }
 
