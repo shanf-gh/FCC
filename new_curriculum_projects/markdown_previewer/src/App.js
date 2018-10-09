@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import marked from 'marked';
 
 class App extends Component {
   state = {
@@ -10,6 +11,11 @@ class App extends Component {
     this.setState({
       text: e.target.value
     });
+  }
+
+  getMarkdownText() {
+    var rawMarkup = marked(this.state.text, { sanitize: true });
+    return { __html: rawMarkup };
   }
 
   render() {
@@ -25,7 +31,7 @@ class App extends Component {
             placeholder="Type some text here..."
             rows="1"
           ></textarea>
-          <div id="preview">
+          <div id="preview" dangerouslySetInnerHTML={this.getMarkdownText()}>
           </div>
         </div>
       </div>
