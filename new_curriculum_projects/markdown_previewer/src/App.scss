@@ -2,6 +2,19 @@ body {
     background-color: #9DBFFF;
 }
 
+footer {
+    margin-bottom: 20px;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
 #markdown-box {
     min-width: 840px;
     width: 80%;
@@ -23,14 +36,69 @@ textarea, #preview {
     margin: 0 10px;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 15px;
     background-color: hsla(210, 100%, 90%, 0.7);
+
+    
+    &::-webkit-scrollbar {
+        width: 5px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
+
 }
 
-textarea{
+textarea {
     resize: none;
     overflow: auto;
 }
 
 #preview { 
+    pre, code {
+        color: rgba(255,255,255,0.9);
+        background-color: rgba(0,0,0,0.9);
+    }
 
+    pre { 
+        padding: 10px 20px;
+        white-space: pre-wrap;
+    }
+
+    code {
+        padding: 5px;
+    }
+
+    pre > code {
+        padding: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        tr:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+        th {
+            text-align: center;
+            background-color: rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 840px) { 
+    #textbox {
+        flex-direction: column;
+        justify-items: center;
+    }
+
+    textarea, #preview {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    textarea {
+        height: 500px;
+    }
 }
