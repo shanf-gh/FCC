@@ -39,8 +39,8 @@ class Drumboard extends Component {
 
     const padElem = this.state.padKeys.map((key, i) => {
       return (
-        <div className="drum-pad" key={key} onClick={this.handleClick}>
-          <audio src={this.state.HeaterKit[i]} id={key}></audio>
+        <div className="drum-pad" id={key} key={key} onClick={this.handleClick}>
+          <audio src={this.state.HeaterKit[i]}></audio>
           {key}
         </div>
       )
@@ -55,6 +55,20 @@ class Drumboard extends Component {
 }
 
 class App extends Component {
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.handleKeyPress);
+  }
+  handleKeyPress = (e) => {
+    switch (e.key) {
+      case 'q':
+        console.log('valid');
+        break;
+      default:
+        console.log('not valid');
+    }
+  }
+
   render() {
     return (
       <div id="drum-machine">
