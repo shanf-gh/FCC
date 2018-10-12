@@ -1,0 +1,6 @@
+- [ ] Find audio file to play
+- [ ] Define handleClick on `.drum-pad`
+- [ ] Define handlePress on `.drum-pad`
+- [ ] Handle audio clip description display in `#display` element
+- [ ] Put it on Codepen.io 
+- [ ] Amend Readme.d
