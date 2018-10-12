@@ -4,8 +4,6 @@ Collection of projects I'm doing while working through the [Free Code Camp](http
 Original from [KaliaHaze](https://gist.github.com/KaliaHaze/633e93581ebace3bde6291e745aa209c#file-fcc-project-list-md).
 [2018/10/12] Modified to take into account new curriculum.
 
-- [ ] | [Requirements]() | [Demo]() | [Source Code]()
-
 ## Responsive Web Design Certification
 
 - [x] Build a Tribute Page | [Requirements](https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-tribute-page/) | [Demo](https://codepen.io/X140hu4/full/qRWoeo/) | [Source Code](https://codepen.io/X140hu4/pen/qRWoeo/)
