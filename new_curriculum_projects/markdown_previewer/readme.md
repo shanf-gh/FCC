@@ -16,6 +16,12 @@ Once you have forked and downloaded the code you should first install the packag
 npm install
 ```
 
+Once instaled you can run the app using:
+
+```
+npm run
+```
+
 ## Built With
 
 * [React](https://reactjs.org/) - The web framework used
