@@ -26,6 +26,7 @@ npm run
 
 * [React](https://reactjs.org/) - The web framework used
 * [Marked](https://github.com/markedjs/marked) - Markdown parser and compiler
+* [node-sass](https://github.com/sass/node-sass) - Node.js bindings to libsass
 
 ## Authors
 
