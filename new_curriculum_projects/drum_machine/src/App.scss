@@ -1,5 +1,9 @@
+@import './components/variables';
+
 body {
     text-align: center;
+    background-color: $body-bg;
+    color: $txt-color;
 }
 
 #root {
@@ -9,11 +13,22 @@ body {
     
 }
 
+a {
+    text-decoration: none;
+    color: #9F6217;
+}
+
+#app {
+    width: 80%;
+}
+
 #drum-machine {
-    background-color: #f4f457;
-    height: 400px;
-    width: 400px;
+    background-color: $drum-bg;
+    border: 5px solid $drum-border;
+    width: 500px;
     padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
     align-items: center;
     display: flex;
 
@@ -23,34 +38,4 @@ body {
         border: solid gray 10px;
         color: white;
     }
-
-    .drumpad-container {
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;
-        align-content: space-around;
-        width: 70%;
-        height: 100%;
-        background-color: #b4d455;
-
-        .drum-key {
-            width: 25%;
-            height: 30%;
-            text-align: center;
-            border: 1px solid black;
-            background-color: rgba(0,0,0,0.5);
-            margin: 0 5px;
-            padding: 5px;
-            transition: all 0.07s;
-        }
-
-        .playing {
-            transform: scale(1.1);
-            background-color: rgba(0,0,0,0.2);
-
-        }
-    }
-
 }

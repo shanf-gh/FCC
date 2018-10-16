@@ -1,33 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
-
-class Drumboard extends Component {
-  render() {
-    const padElem = this.props.padKeys.map((key, i) => {
-      const keyCode = key.charCodeAt(0);
-      return (
-        <div className="drum-key"
-          id={key}
-          data-key={keyCode}
-          key={key}
-          onClick={(e) => this.props.playSound(e)}>
-
-          <audio
-            data-key={keyCode}
-            data-name={this.props.soundKit[i].name}
-            src={this.props.soundKit[i].url}></audio>
-          {key}
-        </div>
-      )
-    });
-
-    return (
-      <div className="drumpad-container">
-        {padElem}
-      </div>
-    )
-  }
-}
+import Drumboard from './components/Drumboard/drumboard';
+import Control from './components/Control/control';
 
 class App extends Component {
   state = {
@@ -160,15 +134,10 @@ class App extends Component {
             padKeys={this.state.padKeys}
             soundKit={this.state.soundKits[soundKit]}
             playSound={this.playSound} />
-          <div className="control-container">
-            <div id="display">{this.state.display}</div>
-            <div className="volume-slider">
-              <input type="range" min="0" max="1" step="0.01" value={this.state.volume} onChange={this.adjustVolume} />
-            </div>
-            <div className="sound-kit">
-              <p>Soundkit</p>
-            </div>
-          </div>
+          <Control
+            display={this.state.display}
+            volume={this.state.volume}
+            adjustVolume={this.adjustVolume} />
         </div>
       </div>
     );
