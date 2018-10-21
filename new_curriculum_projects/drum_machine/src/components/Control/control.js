@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './control.scss';
 
 class Control extends Component {
     render() {
@@ -10,6 +11,9 @@ class Control extends Component {
                 </div>
                 <div className="sound-kit">
                     <p>Soundkit</p>
+                    <div className="sound-kit_select">
+                        <div className="sound-kit-select-inner"></div>
+                    </div>
                 </div>
             </div>
         )
