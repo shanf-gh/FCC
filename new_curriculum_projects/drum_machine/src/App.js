@@ -89,6 +89,10 @@ class App extends Component {
     }
   }
 
+  /**
+   * Play sound
+   * @param {object} e - Event
+   */
   playSound = (e) => {
     const keyCode = e.keyCode ? e.keyCode : e.target.id.charCodeAt(0);
     const audio = document.querySelector(`audio[data-key="${keyCode}"]`)
@@ -103,17 +107,44 @@ class App extends Component {
     this.setState({
       display: audio.dataset.name,
     });
+    this.clearDisplay(2);
   }
 
+  /**
+   * Remove transition of button
+   * @param {object} e - Event
+   */
   removeTransition = (e) => {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('playing');
   }
 
+  /**
+   * Adjust the volume
+   * @param {object} e - Event
+   */
   adjustVolume = (e) => {
     this.setState({
       volume: e.target.value,
       display: `Volume is ${Math.round(e.target.value * 100)}`,
+    })
+    this.clearDisplay(2);
+  }
+
+  /**
+   * Clear the display
+   * @param {integer} timeout - The timeout value in second.
+   */
+  clearDisplay = (timeout) => {
+    if (!timeout || !Number.isInteger(timeout)) return;
+    const timeInMs = timeout * 1000;
+    // timeout in state to be actionable (overwrite, clearTimeout)
+    this.setState({
+      timeout: setTimeout(() => {
+        this.setState({
+          display: '',
+        })
+      }, timeInMs),
     })
   }
 
@@ -139,6 +170,9 @@ class App extends Component {
             volume={this.state.volume}
             adjustVolume={this.adjustVolume} />
         </div>
+        <footer>
+          Made by <a href="https://x140hu4.github.io/" target="_blank">Fabien</a> using <a href="https://reactjs.org/" target="_blank">React</a>
+        </footer>
       </div>
     );
   }
