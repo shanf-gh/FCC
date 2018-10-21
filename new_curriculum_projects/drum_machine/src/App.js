@@ -107,7 +107,7 @@ class App extends Component {
     this.setState({
       display: audio.dataset.name,
     });
-    this.clearDisplay(2);
+    this.clearDisplayIn(2);
   }
 
   /**
@@ -128,15 +128,15 @@ class App extends Component {
       volume: e.target.value,
       display: `Volume is ${Math.round(e.target.value * 100)}`,
     })
-    this.clearDisplay(2);
+    this.clearDisplayIn(2);
   }
 
   /**
    * Clear the display
    * @param {integer} timeout - The timeout value in second.
    */
-  clearDisplay = (timeout) => {
-    if (!timeout || !Number.isInteger(timeout)) return;
+  clearDisplayIn = (timeout = 0) => {
+    if (!Number.isInteger(timeout)) return;
     const timeInMs = timeout * 1000;
     // timeout in state to be actionable (overwrite, clearTimeout)
     this.setState({
