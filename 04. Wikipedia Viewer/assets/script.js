@@ -21,7 +21,7 @@ document.getElementById('in-search').onkeypress = function(e) {
 
       // Build URL for request - need input text value
       var str_search = document.getElementById("in-search").value;
-      url = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&generator=search&exsentences=2&exlimit=max&exintro=1&explaintext=1&excontinue=&gsrsearch="
+      url = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&generator=search&exsentences=2&exlimit=max&exintro=1&explaintext=1&gsrsearch="
             + str_search + "&gsrlimit=" + nbrSearch;
       // GET request
       xhr.open('GET', url, true);
