@@ -10,8 +10,8 @@ window.onload = function() {
 
 
   // define endpoints
-  var endpoint_s = "https://wind-bow.glitch.me/twitch-api/streams/";
-  var endpoint_c = "https://wind-bow.glitch.me/twitch-api/channels/";
+  var endpoint_s = "https://twitch-proxy.freecodecamp.rocks/twitch-api/streams/";
+  var endpoint_c = "https://twitch-proxy.freecodecamp.rocks/twitch-api/channels/";
 
 
 
