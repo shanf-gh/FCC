@@ -101,6 +101,14 @@ header {
 
 /* Hero SECTION */
 
+.hero {
+    background-image: url("./photos/46404193711_cd2f83fccf_c.jpg");
+    min-height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
 .hero video {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
